@@ -1,1 +1,3299 @@
-
+[
+  {
+    "name": "Sakthi",
+    "fullName": "Sakthi P",
+    "email": "me250003067@iiti.ac.in",
+    "password": "sakt3220",
+    "phone": "7540083220"
+  },
+  {
+    "name": "Aghil",
+    "fullName": "Aghil Krishna KP",
+    "email": "aghilkrishna04@gmail.com",
+    "password": "aghi6351",
+    "phone": "8590626351"
+  },
+  {
+    "name": "Suraj",
+    "fullName": "Suraj Yadav",
+    "email": "suraj372y@gmail.com",
+    "password": "sura0849",
+    "phone": "6395090849"
+  },
+  {
+    "name": "Ritesh",
+    "fullName": "Ritesh S",
+    "email": "na23b028@smail.iitm.ac.in",
+    "password": "rite7645",
+    "phone": "8073877645"
+  },
+  {
+    "name": "Dhruv",
+    "fullName": "Dhruv Kumar Jha",
+    "email": "b24bs1132@iitj.ac.in",
+    "password": "dhru6814",
+    "phone": "8578956814"
+  },
+  {
+    "name": "Dhanaraj",
+    "fullName": "Dhanaraj K S",
+    "email": "drj819@gmail.com",
+    "password": "dhan7453",
+    "phone": "8197617453"
+  },
+  {
+    "name": "Vaibhav",
+    "fullName": "Vaibhav Mittal",
+    "email": "2024uee0149@iitjammu.ac.in",
+    "password": "vaib2303",
+    "phone": "9056002303"
+  },
+  {
+    "name": "Vineet",
+    "fullName": "Vineet Singla",
+    "email": "vineet.singla.07@gmail.com",
+    "password": "vine9584",
+    "phone": "9815619584"
+  },
+  {
+    "name": "Nilay",
+    "fullName": "Nilay Khisty",
+    "email": "nilaykhisty@gmail.com",
+    "password": "nila4519",
+    "phone": "8779554519"
+  },
+  {
+    "name": "Abhijeet",
+    "fullName": "Abhijeet Singh",
+    "email": "abhijeetrsingh2006@gmail.com",
+    "password": "abhi7265",
+    "phone": "8177857265"
+  },
+  {
+    "name": "Darsh",
+    "fullName": "Darsh Viradiya",
+    "email": "darshviradiya01@gmail.com",
+    "password": "dars0712",
+    "phone": "9081870712"
+  },
+  {
+    "name": "Gauransh",
+    "fullName": "Gauransh Gupta",
+    "email": "guptagauransh06@gmail.com",
+    "password": "gaur1187",
+    "phone": "8595601187"
+  },
+  {
+    "name": "Dev",
+    "fullName": "Dev Shah",
+    "email": "25je0885@iitism.ac.in",
+    "password": "devs6287",
+    "phone": "8928476287"
+  },
+  {
+    "name": "Sunny",
+    "fullName": "Sunny Panchal",
+    "email": "sunny06.connect@gmail.com",
+    "password": "sunn5064",
+    "phone": "9958765064"
+  },
+  {
+    "name": "SIDDHANT",
+    "fullName": "SIDDHANT VERMA",
+    "email": "sidmahimaverma@gmail.com",
+    "password": "sidd2939",
+    "phone": "7827222939"
+  },
+  {
+    "name": "Falak",
+    "fullName": "Falak Agrawal",
+    "email": "falakagrawal8@gmail.com",
+    "password": "fala0265",
+    "phone": "9826070265"
+  },
+  {
+    "name": "Ashutosh",
+    "fullName": "Ashutosh Shivhare",
+    "email": "kavascgcf@gmail.com",
+    "password": "ashu6671",
+    "phone": "9098056671"
+  },
+  {
+    "name": "Harshith",
+    "fullName": "Harshith Gowda R",
+    "email": "rharshithgowda2003@gmail.com",
+    "password": "hars0299",
+    "phone": "8618220299"
+  },
+  {
+    "name": "Samarth",
+    "fullName": "Samarth Yanjane",
+    "email": "spyanjane_b25@ce.vjti.ac.in",
+    "password": "sama0763",
+    "phone": "9510390763"
+  },
+  {
+    "name": "Aditya",
+    "fullName": "Aditya",
+    "email": "kabirsachdevaa@gmail.com",
+    "password": "adit0052",
+    "phone": "7717490052"
+  },
+  {
+    "name": "Karnati",
+    "fullName": "Karnati Sri Dattu",
+    "email": "karnati_sd@cs.iitr.ac.in",
+    "password": "karn3106",
+    "phone": "9515993106"
+  },
+  {
+    "name": "shrey",
+    "fullName": "shrey",
+    "email": "shreyzhere@gmail.com",
+    "password": "shre8424",
+    "phone": "9392228424"
+  },
+  {
+    "name": "Krishika",
+    "fullName": "Krishika Goenka",
+    "email": "krishika.goenka@gmail.com",
+    "password": "kris9800",
+    "phone": "9711999800"
+  },
+  {
+    "name": "Samar",
+    "fullName": "Samar Goyal",
+    "email": "samargoyal4564@gmail.com",
+    "password": "sama7597",
+    "phone": "8302257597"
+  },
+  {
+    "name": "Zubair",
+    "fullName": "Zubair Al Mamoon",
+    "email": "jahanara.zubair@gmail.com",
+    "password": "zuba4696",
+    "phone": "9365624696"
+  },
+  {
+    "name": "Agam",
+    "fullName": "Agam Jot Singh",
+    "email": "agamjot08@gmail.com",
+    "password": "agam0470",
+    "phone": "9818860470"
+  },
+  {
+    "name": "Aadrikaa",
+    "fullName": "Aadrikaa Gupta",
+    "email": "gupta.aadrikaa@gmail.com",
+    "password": "aadr6850",
+    "phone": "8765356850"
+  },
+  {
+    "name": "Ayushi",
+    "fullName": "Ayushi zala",
+    "email": "agatezal094@gmail.com",
+    "password": "ayus8171",
+    "phone": "9484808171"
+  },
+  {
+    "name": "Lokendra",
+    "fullName": "Lokendra Kumar",
+    "email": "ma23m008@smail.iitm.ac.in",
+    "password": "loke5298",
+    "phone": "6387815298"
+  },
+  {
+    "name": "Shakti",
+    "fullName": "Shakti Kumar Suraj",
+    "email": "shakti.2025ug1097@iiitranchi.ac.in",
+    "password": "shak4123",
+    "phone": "9508974123"
+  },
+  {
+    "name": "Siddhesh",
+    "fullName": "Siddhesh Agarwal",
+    "email": "siddheshbvbvpn0307@gmail.com",
+    "password": "sidd7771",
+    "phone": "7014967771"
+  },
+  {
+    "name": "JasRaj",
+    "fullName": "JasRaj",
+    "email": "sjrjasraj9470@gmail.com",
+    "password": "jasr1864",
+    "phone": "6367231864"
+  },
+  {
+    "name": "Kira",
+    "fullName": "Kira",
+    "email": "hit32334@gmail.com",
+    "password": "kira0217",
+    "phone": "8790420217"
+  },
+  {
+    "name": "Shivanadri",
+    "fullName": "Shivanadri Abhinav",
+    "email": "abhinav_s3@ee.iitr.ac.in",
+    "password": "shiv4614",
+    "phone": "8688034614"
+  },
+  {
+    "name": "Karthik",
+    "fullName": "Karthik Challagundla",
+    "email": "karthikchallagundla18@gmail.com",
+    "password": "kart3266",
+    "phone": "8919393266"
+  },
+  {
+    "name": "Somya",
+    "fullName": "Somya kumar",
+    "email": "somya_k@cs.iitr.ac.in",
+    "password": "somy5114",
+    "phone": "7011755114"
+  },
+  {
+    "name": "Meet",
+    "fullName": "Meet prajapati",
+    "email": "meet_p@mt.iitr.ac.in",
+    "password": "meet6162",
+    "phone": "8094116162"
+  },
+  {
+    "name": "Tejas",
+    "fullName": "Tejas Agarwal",
+    "email": "tejasagarwaliitg@gmail.com",
+    "password": "teja3849",
+    "phone": "8822323849"
+  },
+  {
+    "name": "Vasam",
+    "fullName": "Vasam Shobith",
+    "email": "footballerhero1018@gmail.com",
+    "password": "vasa9346",
+    "phone": "7013849346"
+  },
+  {
+    "name": "Shibam",
+    "fullName": "Shibam Mondal",
+    "email": "shibamiit25@gmail.com",
+    "password": "shib9936",
+    "phone": "9875379936"
+  },
+  {
+    "name": "Ronak",
+    "fullName": "Ronak Chandak",
+    "email": "ronak_c@me.iitr.ac.in",
+    "password": "rona8493",
+    "phone": "8955788493"
+  },
+  {
+    "name": "Ansh",
+    "fullName": "Ansh Bhutani",
+    "email": "bhutaniansh08@gmail.com",
+    "password": "ansh7253",
+    "phone": "9306247253"
+  },
+  {
+    "name": "Yuvraj",
+    "fullName": "Yuvraj",
+    "email": "yuvrajydv6306@gmail.com",
+    "password": "yuvr6421",
+    "phone": "6306636421"
+  },
+  {
+    "name": "Rishiikesh",
+    "fullName": "Rishiikesh S K",
+    "email": "rishiikeshsk@gmail.com",
+    "password": "rish7802",
+    "phone": "8608687802"
+  },
+  {
+    "name": "Navdha",
+    "fullName": "Navdha Pandya",
+    "email": "navdha_p@ch.iitr.ac.in",
+    "password": "navd9745",
+    "phone": "9054509745"
+  },
+  {
+    "name": "Harshita",
+    "fullName": "Harshita Aggarwal",
+    "email": "harshita_a@ma.iitr.ac.in",
+    "password": "hars3967",
+    "phone": "9569773967"
+  },
+  {
+    "name": "Manvi",
+    "fullName": "Manvi Mehta",
+    "email": "ug25cai017@iiitsurat.ac.in",
+    "password": "manv6151",
+    "phone": "7020366151"
+  },
+  {
+    "name": "Omshi",
+    "fullName": "Omshi Arora",
+    "email": "aroraomshi2006@gmail.com",
+    "password": "omsh3350",
+    "phone": "9311203350"
+  },
+  {
+    "name": "Srinivi",
+    "fullName": "Srinivi",
+    "email": "dsrinivi1901@gmail.com",
+    "password": "srin5881",
+    "phone": "8870255881"
+  },
+  {
+    "name": "Bhaskar",
+    "fullName": "Bhaskar Adhikari",
+    "email": "probhaskar123@gmail.com",
+    "password": "bhas7202",
+    "phone": "9259787202"
+  },
+  {
+    "name": "Prabhudutta",
+    "fullName": "Prabhudutta Prusti",
+    "email": "prabhudutta_2501mc37@iitp.ac.in",
+    "password": "prab5595",
+    "phone": "7978995595"
+  },
+  {
+    "name": "Atin",
+    "fullName": "Atin Gupta",
+    "email": "g.atin@iitg.ac.in",
+    "password": "atin1284",
+    "phone": "8850021284"
+  },
+  {
+    "name": "Ritesh",
+    "fullName": "Ritesh Arora",
+    "email": "ritesh_2501mc04@iitp.ac.in",
+    "password": "rite7626",
+    "phone": "9211877626"
+  },
+  {
+    "name": "Siddharth",
+    "fullName": "Siddharth Aditya k",
+    "email": "siddharthadityak@gmail.com",
+    "password": "sidd8352",
+    "phone": "9019828352"
+  },
+  {
+    "name": "Pawani",
+    "fullName": "Pawani Mittal",
+    "email": "pawanimittal007@gmail.com",
+    "password": "pawa0840",
+    "phone": "9667100840"
+  },
+  {
+    "name": "Keyur",
+    "fullName": "Keyur Muliya",
+    "email": "keyurmuliya9641@gmail.com",
+    "password": "keyu5238",
+    "phone": "7572965238"
+  },
+  {
+    "name": "Arpit",
+    "fullName": "Arpit Verma",
+    "email": "arpitverma26july@gmail.com",
+    "password": "arpi0988",
+    "phone": "7754960988"
+  },
+  {
+    "name": "Chetan",
+    "fullName": "Chetan Singhal",
+    "email": "singhalc29@gmail.com",
+    "password": "chet8811",
+    "phone": "9588198811"
+  },
+  {
+    "name": "Chinmay",
+    "fullName": "Chinmay Choudhury",
+    "email": "chinmay.davbdbl@gmail.com",
+    "password": "chin7749",
+    "phone": "8249317749"
+  },
+  {
+    "name": "CH",
+    "fullName": "CH SAMPATH SAI RAMA",
+    "email": "sampathxsai@gmail.com",
+    "password": "chsa7711",
+    "phone": "6301127711"
+  },
+  {
+    "name": "Chaitanyaa",
+    "fullName": "Chaitanyaa Vyas",
+    "email": "chaitanyaavyas@gmail.com",
+    "password": "chai8346",
+    "phone": "9405588346"
+  },
+  {
+    "name": "Akshay",
+    "fullName": "Akshay Kumar",
+    "email": "akshaykumarhudedmani@gmail.com",
+    "password": "aksh6436",
+    "phone": "9901536436"
+  },
+  {
+    "name": "Kasak",
+    "fullName": "Kasak",
+    "email": "kasak@ma.iitr.ac.in",
+    "password": "kasa1284",
+    "phone": "9467871284"
+  },
+  {
+    "name": "Sahasra",
+    "fullName": "Sahasra G",
+    "email": "togandhesahasra@gmail.com",
+    "password": "saha3388",
+    "phone": "8121503388"
+  },
+  {
+    "name": "Varshini",
+    "fullName": "Varshini M",
+    "email": "varshinim1604@gmail.com",
+    "password": "vars5212",
+    "phone": "6305685212"
+  },
+  {
+    "name": "Sarthak",
+    "fullName": "Sarthak",
+    "email": "sarthak_2501mc06@iitp.ac.in",
+    "password": "sart3267",
+    "phone": "8986183267"
+  },
+  {
+    "name": "Samarth",
+    "fullName": "Samarth Kansal",
+    "email": "samarth_k1@me.iitr.ac.in",
+    "password": "sama3325",
+    "phone": "8800653325"
+  },
+  {
+    "name": "Parijat",
+    "fullName": "Parijat Ghosh",
+    "email": "parijat_2501mm02@iitp.ac.in",
+    "password": "pari4293",
+    "phone": "8317864293"
+  },
+  {
+    "name": "Surisetti",
+    "fullName": "Surisetti Adithya",
+    "email": "adithyasurisetti9@gmail.com",
+    "password": "suri4737",
+    "phone": "8143864737"
+  },
+  {
+    "name": "Likhitha",
+    "fullName": "Likhitha Konchada",
+    "email": "konchada_l@ma.iitr.ac.in",
+    "password": "likh7577",
+    "phone": "9014367577"
+  },
+  {
+    "name": "Khushi",
+    "fullName": "Khushi Verma",
+    "email": "kv.iitpatna25@gmail.com",
+    "password": "khus5180",
+    "phone": "7459975180"
+  },
+  {
+    "name": "Utkarsh",
+    "fullName": "Utkarsh",
+    "email": "2024itb084.utkarsh@students.iiests.ac.in",
+    "password": "utka1340",
+    "phone": "9608901340"
+  },
+  {
+    "name": "Radhika",
+    "fullName": "Radhika Gupta",
+    "email": "mt1240996@iitd.ac.in",
+    "password": "radh8961",
+    "phone": "6377678961"
+  },
+  {
+    "name": "Aaditya",
+    "fullName": "Aaditya Saraf",
+    "email": "aadityasaraf99@gmail.com",
+    "password": "aadi7004",
+    "phone": "7738397004"
+  },
+  {
+    "name": "Suvrat",
+    "fullName": "Suvrat Jain",
+    "email": "suvratjain007op@gmail.com",
+    "password": "suvr9688",
+    "phone": "8815999688"
+  },
+  {
+    "name": "Sappati",
+    "fullName": "Sappati Satya Sri Krishna Umesh",
+    "email": "24je0922@iitism.ac.in",
+    "password": "sapp6918",
+    "phone": "6300216918"
+  },
+  {
+    "name": "Shasak",
+    "fullName": "Shasak Arora",
+    "email": "shasakarora@gmail.com",
+    "password": "shas3250",
+    "phone": "8360733250"
+  },
+  {
+    "name": "LAKSHIT",
+    "fullName": "LAKSHIT SHARMA",
+    "email": "lakshit.sharma@iitg.ac.in",
+    "password": "laks4086",
+    "phone": "6377244086"
+  },
+  {
+    "name": "Pushp",
+    "fullName": "Pushp Raj",
+    "email": "he.is.pushp@gmail.com",
+    "password": "push2529",
+    "phone": "7781972529"
+  },
+  {
+    "name": "Anvi",
+    "fullName": "Anvi Bansal",
+    "email": "anvibansal.tech@gmail.com",
+    "password": "anvi0805",
+    "phone": "9407510805"
+  },
+  {
+    "name": "ANKAN",
+    "fullName": "ANKAN DEY",
+    "email": "ankandey686@gmail.com",
+    "password": "anka6365",
+    "phone": "8017796365"
+  },
+  {
+    "name": "Ujjwal",
+    "fullName": "Ujjwal Deep",
+    "email": "mail2ujjwaldeephzb@gmail.com",
+    "password": "ujjw5300",
+    "phone": "8271225300"
+  },
+  {
+    "name": "Anuj",
+    "fullName": "Anuj Kothari",
+    "email": "che230008010@iiti.ac.in",
+    "password": "anuj1530",
+    "phone": "8602961530"
+  },
+  {
+    "name": "yadavalli",
+    "fullName": "yadavalli sandeep",
+    "email": "yadavallisba2027@email.iimcal.ac.in",
+    "password": "yada0706",
+    "phone": "8734090706"
+  },
+  {
+    "name": "Mohit",
+    "fullName": "Mohit Somai",
+    "email": "mohitsomai2007@gmail.com",
+    "password": "mohi0396",
+    "phone": "9521470396"
+  },
+  {
+    "name": "Arpit",
+    "fullName": "Arpit Raj Bhagat",
+    "email": "arpit_rb@ece.iitr.ac.in",
+    "password": "arpi0392",
+    "phone": "9939860392"
+  },
+  {
+    "name": "GOHIL",
+    "fullName": "GOHIL MAHIRAJSINH",
+    "email": "ug25ece024@iiitsurat.ac.in",
+    "password": "gohi5150",
+    "phone": "7096145150"
+  },
+  {
+    "name": "Sudhanshu",
+    "fullName": "Sudhanshu Bajpai",
+    "email": "sudhanshubajpai167@gmail.com",
+    "password": "sudh1069",
+    "phone": "9540911069"
+  },
+  {
+    "name": "Parth",
+    "fullName": "Parth Goyal",
+    "email": "parth_s@ee.iitr.ac.in",
+    "password": "part4673",
+    "phone": "8168424673"
+  },
+  {
+    "name": "Devyani",
+    "fullName": "Devyani Modi",
+    "email": "devyani_m@hs.iitr.ac.in",
+    "password": "devy3391",
+    "phone": "8076463391"
+  },
+  {
+    "name": "Bhavna",
+    "fullName": "Bhavna Adwani",
+    "email": "adbhavna1369@gmail.com",
+    "password": "bhav9285",
+    "phone": "9715079285"
+  },
+  {
+    "name": "Utkarsh",
+    "fullName": "Utkarsh Sahu",
+    "email": "21f1001107@ds.study.iitm.ac.in",
+    "password": "utka5125",
+    "phone": "9264925125"
+  },
+  {
+    "name": "Darshan",
+    "fullName": "Darshan",
+    "email": "djingar2006@gmail.com",
+    "password": "dars4717",
+    "phone": "6378914717"
+  },
+  {
+    "name": "ADITI",
+    "fullName": "ADITI SHARMA",
+    "email": "aditi.25bcy10070@vitbhopal.ac.in",
+    "password": "adit9228",
+    "phone": "9243269228"
+  },
+  {
+    "name": "Arnav",
+    "fullName": "Arnav Nehete",
+    "email": "arnavcodewiz@gmail.com",
+    "password": "arna1953",
+    "phone": "9769371953"
+  },
+  {
+    "name": "suraj",
+    "fullName": "suraj prakash",
+    "email": "rajyavanshi@gmail.com",
+    "password": "sura4771",
+    "phone": "9263714771"
+  },
+  {
+    "name": "Heet",
+    "fullName": "Heet Nisar",
+    "email": "heet.nisar.211292@gmail.com",
+    "password": "heet3236",
+    "phone": "9820363236"
+  },
+  {
+    "name": "Shashi",
+    "fullName": "Shashi haran ram vanam",
+    "email": "shashiharanramvanam@gmail.com",
+    "password": "shas3471",
+    "phone": "9676233471"
+  },
+  {
+    "name": "Amrit",
+    "fullName": "Amrit Parashar",
+    "email": "amritparashar2007@gmail.com",
+    "password": "amri7838",
+    "phone": "8851557838"
+  },
+  {
+    "name": "Hitansh",
+    "fullName": "Hitansh Gandhi",
+    "email": "hitansh_rg@cs.iitr.ac.in",
+    "password": "hita6493",
+    "phone": "8780326493"
+  },
+  {
+    "name": "SHARAD",
+    "fullName": "SHARAD SINGH",
+    "email": "sharad18022005@gmail.com",
+    "password": "shar2478",
+    "phone": "6392702478"
+  },
+  {
+    "name": "Bhanu",
+    "fullName": "Bhanu Prakash S",
+    "email": "bhanuprakashs357@gmail.com",
+    "password": "bhan6875",
+    "phone": "7899916875"
+  },
+  {
+    "name": "DWARAKESH",
+    "fullName": "DWARAKESH",
+    "email": "haidwarakesh@gmail.com",
+    "password": "dwar7534",
+    "phone": "6380397534"
+  },
+  {
+    "name": "Pulkit",
+    "fullName": "Pulkit Singh",
+    "email": "pulkit9453@gmail.com",
+    "password": "pulk7018",
+    "phone": "8318617018"
+  },
+  {
+    "name": "harshit",
+    "fullName": "harshit gupta",
+    "email": "harshitonclouds@gmail.com",
+    "password": "hars5712",
+    "phone": "8800615712"
+  },
+  {
+    "name": "Rushan",
+    "fullName": "Rushan Raza",
+    "email": "rushan_2501es20@iitp.ac.in",
+    "password": "rush1530",
+    "phone": "9085851530"
+  },
+  {
+    "name": "AYUSH",
+    "fullName": "AYUSH KUMAR KUSHWAHA",
+    "email": "ayushk.2024ug1020@iiitranchi.ac.in",
+    "password": "ayus0485",
+    "phone": "9263200485"
+  },
+  {
+    "name": "Rishi",
+    "fullName": "Rishi Karthick S R",
+    "email": "rishikarthick101@gmail.com",
+    "password": "rish5103",
+    "phone": "9488125103"
+  },
+  {
+    "name": "Soumik",
+    "fullName": "Soumik Chowdhury",
+    "email": "soumik.chowdhury00@gmail.com",
+    "password": "soum7476",
+    "phone": "8918027476"
+  },
+  {
+    "name": "Sreesh",
+    "fullName": "Sreesh Sundar",
+    "email": "sreeshsundar61@gmail.com",
+    "password": "sree2665",
+    "phone": "7004832665"
+  },
+  {
+    "name": "Bassa",
+    "fullName": "Bassa Pavan venkata Raghava",
+    "email": "pavanbassa111@gmail.com",
+    "password": "bass8913",
+    "phone": "7995988913"
+  },
+  {
+    "name": "Aditya",
+    "fullName": "Aditya Singh",
+    "email": "aditsyntax@gmail.com",
+    "password": "adit0732",
+    "phone": "8112310732"
+  },
+  {
+    "name": "Mayank",
+    "fullName": "Mayank",
+    "email": "mayank@hs.iitr.ac.in",
+    "password": "maya4357",
+    "phone": "6376814357"
+  },
+  {
+    "name": "aditya",
+    "fullName": "aditya sood",
+    "email": "aksood.02@gmail.com",
+    "password": "adit6469",
+    "phone": "8305936469"
+  },
+  {
+    "name": "abhay",
+    "fullName": "abhay chauhan",
+    "email": "abhaychauhan18983@gmail.com",
+    "password": "abha0170",
+    "phone": "6396840170"
+  },
+  {
+    "name": "Shivam",
+    "fullName": "Shivam Sharma",
+    "email": "ss1167557@gmail.com",
+    "password": "shiv7274",
+    "phone": "7082547274"
+  },
+  {
+    "name": "J",
+    "fullName": "J Mukul",
+    "email": "mukul_j@ma.iitr.ac.in",
+    "password": "jmuk7991",
+    "phone": "8104057991"
+  },
+  {
+    "name": "Varnika",
+    "fullName": "Varnika Srivastava",
+    "email": "varnika_2501ce13@iitp.ac.in",
+    "password": "varn8967",
+    "phone": "8604668967"
+  },
+  {
+    "name": "Tokala",
+    "fullName": "Tokala mukunda preethi",
+    "email": "tokal.mpreethi@gmail.com",
+    "password": "toka5679",
+    "phone": "7780655679"
+  },
+  {
+    "name": "Kavya",
+    "fullName": "Kavya Chaudhari",
+    "email": "kavya2005additional@gmail.com",
+    "password": "kavy9503",
+    "phone": "9354769503"
+  },
+  {
+    "name": "Sarthak",
+    "fullName": "Sarthak Khot",
+    "email": "sarthakkhot0593@gmail.com",
+    "password": "sart8518",
+    "phone": "9022118518"
+  },
+  {
+    "name": "Priyanshu",
+    "fullName": "Priyanshu Rana",
+    "email": "priyanshu_r@es.iitr.ac.in",
+    "password": "priy5815",
+    "phone": "8791155815"
+  },
+  {
+    "name": "Yogender",
+    "fullName": "Yogender Singh",
+    "email": "yogender1206@gmail.com",
+    "password": "yoge2654",
+    "phone": "9910612654"
+  },
+  {
+    "name": "Sourav",
+    "fullName": "Sourav Sharma",
+    "email": "souravs24@iiserb.ac.in",
+    "password": "sour5778",
+    "phone": "9508495778"
+  },
+  {
+    "name": "Anuj",
+    "fullName": "Anuj Pavan Sharma",
+    "email": "anuj.p.sharma07@gmail.com",
+    "password": "anuj3153",
+    "phone": "9588613153"
+  },
+  {
+    "name": "Pratham",
+    "fullName": "Pratham Kumar Gupta",
+    "email": "k.pratham95@gmail.com",
+    "password": "prat2137",
+    "phone": "9837042137"
+  },
+  {
+    "name": "Gyanendra",
+    "fullName": "Gyanendra Nath Jha",
+    "email": "gyanendranathjha4@gmail.com",
+    "password": "gyan5564",
+    "phone": "6201365564"
+  },
+  {
+    "name": "Om",
+    "fullName": "Om Kumar",
+    "email": "om_2501es18@iitp.ac.in",
+    "password": "omku7367",
+    "phone": "7209237367"
+  },
+  {
+    "name": "Devansh",
+    "fullName": "Devansh Bansal",
+    "email": "bansalv843@gmail.com",
+    "password": "deva3790",
+    "phone": "8320883790"
+  },
+  {
+    "name": "Ansh",
+    "fullName": "Ansh Chitkara",
+    "email": "anshchitkara19@gmail.com",
+    "password": "ansh7047",
+    "phone": "9311997047"
+  },
+  {
+    "name": "Saurabh",
+    "fullName": "Saurabh Kaushik",
+    "email": "saurabhkaushik7642@gmail.com",
+    "password": "saur9968",
+    "phone": "9354269968"
+  },
+  {
+    "name": "Amoolya",
+    "fullName": "Amoolya Sharan",
+    "email": "amoolya_2503cb02@iitp.ac.in",
+    "password": "amoo7729",
+    "phone": "9336527729"
+  },
+  {
+    "name": "sonu",
+    "fullName": "sonu kumar",
+    "email": "sonukumar08032007@gmail.com",
+    "password": "sonu1770",
+    "phone": "7295071770"
+  },
+  {
+    "name": "Chodisetty",
+    "fullName": "Chodisetty Likitha Vaibhava Aasritha",
+    "email": "chodisetty_2503es04@iitp.ac.in",
+    "password": "chod8383",
+    "phone": "7997668383"
+  },
+  {
+    "name": "SARTHAK",
+    "fullName": "SARTHAK TIBDEWAL",
+    "email": "sarthakktibdewal@gmail.com",
+    "password": "sart2416",
+    "phone": "9438612416"
+  },
+  {
+    "name": "Vansh",
+    "fullName": "Vansh",
+    "email": "vanshgupta55368@gmail.com",
+    "password": "vans6151",
+    "phone": "7668356151"
+  },
+  {
+    "name": "Shivam",
+    "fullName": "Shivam Gupta",
+    "email": "shivamgupta85424@gmail.com",
+    "password": "shiv5424",
+    "phone": "9499185424"
+  },
+  {
+    "name": "Abhishek",
+    "fullName": "Abhishek Raj",
+    "email": "rajabhi1863@gmail.com",
+    "password": "abhi0117",
+    "phone": "8010380117"
+  },
+  {
+    "name": "Abhishek",
+    "fullName": "Abhishek",
+    "email": "abhishek1@mt.iitr.ac.in",
+    "password": "abhi2592",
+    "phone": "9910262592"
+  },
+  {
+    "name": "Ved",
+    "fullName": "Ved Bajaj",
+    "email": "bajajved21@gmail.com",
+    "password": "vedb2800",
+    "phone": "7517772800"
+  },
+  {
+    "name": "Swdha",
+    "fullName": "Swdha",
+    "email": "swdha_g@cs.iitr.ac.in",
+    "password": "swdh6218",
+    "phone": "7814066218"
+  },
+  {
+    "name": "Aman",
+    "fullName": "Aman Hansda",
+    "email": "amanhansda404@gmail.com",
+    "password": "aman7312",
+    "phone": "9304027312"
+  },
+  {
+    "name": "Abhinav",
+    "fullName": "Abhinav Bindra",
+    "email": "rishuseth76@gmail.com",
+    "password": "abhi5313",
+    "phone": "9839925313"
+  },
+  {
+    "name": "Vidhaan",
+    "fullName": "Vidhaan Jain",
+    "email": "vidhaan.jain16@gmail.com",
+    "password": "vidh0484",
+    "phone": "8527930484"
+  },
+  {
+    "name": "viraj",
+    "fullName": "viraj kadu",
+    "email": "kadu.2025ug5044@iiitranchi.ac.in",
+    "password": "vira6016",
+    "phone": "9373056016"
+  },
+  {
+    "name": "Dipayan",
+    "fullName": "Dipayan Nandi",
+    "email": "ark4nandi@gmail.com",
+    "password": "dipa9783",
+    "phone": "9830909783"
+  },
+  {
+    "name": "Vansh",
+    "fullName": "Vansh Singla",
+    "email": "25msceco020@igidr.ac.in",
+    "password": "vans4442",
+    "phone": "9306604442"
+  },
+  {
+    "name": "Nayan",
+    "fullName": "Nayan Saraff",
+    "email": "nayansaraff3739@gmail.com",
+    "password": "naya2997",
+    "phone": "9073522997"
+  },
+  {
+    "name": "Dhruvi",
+    "fullName": "Dhruvi Shah",
+    "email": "007dhruvishah@gmail.com",
+    "password": "dhru7341",
+    "phone": "9409407341"
+  },
+  {
+    "name": "KRISH",
+    "fullName": "KRISH",
+    "email": "krish1@es.iitr.ac.in",
+    "password": "kris4078",
+    "phone": "9468114078"
+  },
+  {
+    "name": "Charul",
+    "fullName": "Charul",
+    "email": "charul1902@gmail.com",
+    "password": "char7300",
+    "phone": "7589067300"
+  },
+  {
+    "name": "Savinaya",
+    "fullName": "Savinaya K S",
+    "email": "savi123ofmysore@gmail.com",
+    "password": "savi9458",
+    "phone": "6364279458"
+  },
+  {
+    "name": "Tanishka",
+    "fullName": "Tanishka Srivastava",
+    "email": "tanishka_s@cy.iitr.ac.in",
+    "password": "tani7189",
+    "phone": "8305027189"
+  },
+  {
+    "name": "Aditya",
+    "fullName": "Aditya Kumar",
+    "email": "parallel9632universe@gmail.com",
+    "password": "adit3853",
+    "phone": "6205793853"
+  },
+  {
+    "name": "Preeti",
+    "fullName": "Preeti Mukherjee",
+    "email": "25f3004794@ds.study.iitm.ac.in",
+    "password": "pree7207",
+    "phone": "9793307207"
+  },
+  {
+    "name": "shreya",
+    "fullName": "shreya talari",
+    "email": "shreyatalari325@gmail.com",
+    "password": "shre5639",
+    "phone": "8074255639"
+  },
+  {
+    "name": "Antorip",
+    "fullName": "Antorip Saha",
+    "email": "saha2612antorip@gmail.com",
+    "password": "anto8077",
+    "phone": "9154498077"
+  },
+  {
+    "name": "Daisy",
+    "fullName": "Daisy Verma",
+    "email": "daisy.eco0601@gmail.com",
+    "password": "dais9972",
+    "phone": "9135869972"
+  },
+  {
+    "name": "Hanmanth",
+    "fullName": "Hanmanth Nayak",
+    "email": "hanmanthnayak.95@gmail.com",
+    "password": "hanm8793",
+    "phone": "8897718793"
+  },
+  {
+    "name": "JASWANTH",
+    "fullName": "JASWANTH SAI",
+    "email": "grandhi_js@cs.iitr.ac.in",
+    "password": "jasw3926",
+    "phone": "9030573926"
+  },
+  {
+    "name": "Varun",
+    "fullName": "Varun Kumar K",
+    "email": "vkumark572@gmail.com",
+    "password": "varu5020",
+    "phone": "7204465020"
+  },
+  {
+    "name": "Parth",
+    "fullName": "Parth Upman",
+    "email": "parthupman1@gmail.com",
+    "password": "part3701",
+    "phone": "8905363701"
+  },
+  {
+    "name": "Ashish",
+    "fullName": "Ashish Giri",
+    "email": "ag107.8682u@gmail.com",
+    "password": "ashi3705",
+    "phone": "9970923705"
+  },
+  {
+    "name": "GARV",
+    "fullName": "GARV",
+    "email": "garv@cs.iitr.ac.in",
+    "password": "garv4208",
+    "phone": "9671534208"
+  },
+  {
+    "name": "Pratik",
+    "fullName": "Pratik Kumar Pandey P",
+    "email": "pratiksrdf@gmail.com",
+    "password": "prat0568",
+    "phone": "9791180568"
+  },
+  {
+    "name": "Naman",
+    "fullName": "Naman Garg",
+    "email": "naman23100@iiitnr.edu.in",
+    "password": "nama3670",
+    "phone": "9891783670"
+  },
+  {
+    "name": "Mahavis",
+    "fullName": "Mahavis Alam",
+    "email": "mehevis313@gmail.com",
+    "password": "maha0276",
+    "phone": "7407580276"
+  },
+  {
+    "name": "Mohit",
+    "fullName": "Mohit kumar",
+    "email": "tiwarimohit384@gmail.com",
+    "password": "mohi1619",
+    "phone": "9431301619"
+  },
+  {
+    "name": "Anadi",
+    "fullName": "Anadi",
+    "email": "anadi2525@kgpian.iitkgp.ac.in",
+    "password": "anad2204",
+    "phone": "7000722204"
+  },
+  {
+    "name": "monodip",
+    "fullName": "monodip malakar",
+    "email": "monodipmalakar00@gmail.com",
+    "password": "mono6002",
+    "phone": "6003496002"
+  },
+  {
+    "name": "Ayush",
+    "fullName": "Ayush jha",
+    "email": "ayush.90516401525@std.ggsipu.ac.in",
+    "password": "ayus2904",
+    "phone": "9958512904"
+  },
+  {
+    "name": "Prince",
+    "fullName": "Prince Gupta",
+    "email": "prince.gupta.civ25@itbhu.ac.in",
+    "password": "prin4068",
+    "phone": "7755074068"
+  },
+  {
+    "name": "TAMMA",
+    "fullName": "TAMMA SIVA SAI BHUVANA CHANDRA AGASTYA",
+    "email": "tsivasai.bcagastya.ece25@itbhu.ac.in",
+    "password": "tamm6770",
+    "phone": "7337576770"
+  },
+  {
+    "name": "Aryan",
+    "fullName": "Aryan kadam",
+    "email": "aryan.vkadam.che25@itbhu.ac.in",
+    "password": "arya4656",
+    "phone": "8767514656"
+  },
+  {
+    "name": "Soumay",
+    "fullName": "Soumay Agarwal",
+    "email": "soumay.sushilkagarwal.cse25@itbhu.ac.in",
+    "password": "soum3311",
+    "phone": "8766663311"
+  },
+  {
+    "name": "Hrushikesh",
+    "fullName": "Hrushikesh Tayade",
+    "email": "tayade.hrushikesh.eee25@itbhu.ac.in",
+    "password": "hrus2179",
+    "phone": "8655022179"
+  },
+  {
+    "name": "Yash",
+    "fullName": "Yash Gupta",
+    "email": "yash.gupta.eee25@itbhu.ac.in",
+    "password": "yash1384",
+    "phone": "9340951384"
+  },
+  {
+    "name": "Vineet",
+    "fullName": "Vineet Anand",
+    "email": "vineet.anand.ece25@itbhu.ac.in",
+    "password": "vine0934",
+    "phone": "8967510934"
+  },
+  {
+    "name": "Shreya",
+    "fullName": "Shreya Salhotra",
+    "email": "shreya.salhotra.cse25@itbhu.ac.in",
+    "password": "shre7334",
+    "phone": "9911417334"
+  },
+  {
+    "name": "Bikram",
+    "fullName": "Bikram Barman",
+    "email": "bikram.barman.che24@itbhu.ac.in",
+    "password": "bikr3493",
+    "phone": "9339773493"
+  },
+  {
+    "name": "Aaradhya",
+    "fullName": "Aaradhya Nikam",
+    "email": "aaradhyaanil.nikam.ece25@itbhu.ac.in",
+    "password": "aara5266",
+    "phone": "8779985266"
+  },
+  {
+    "name": "Vishwas",
+    "fullName": "Vishwas Kushwaha",
+    "email": "vishwas.kushwaha.mat25@itbhu.ac.in",
+    "password": "vish0456",
+    "phone": "9336680456"
+  },
+  {
+    "name": "Vedish",
+    "fullName": "Vedish mandloi",
+    "email": "vedish.mandloi.ece25@itbhu.ac.in",
+    "password": "vedi4322",
+    "phone": "9755754322"
+  },
+  {
+    "name": "Vikhyat",
+    "fullName": "Vikhyat Singh Phogat",
+    "email": "vikhyatsingh.phogat.cse25@itbhu.ac.in",
+    "password": "vikh1178",
+    "phone": "8076131178"
+  },
+  {
+    "name": "Sanket",
+    "fullName": "Sanket Nayak",
+    "email": "sanket.nayak.cse25@itbhu.ac.in",
+    "password": "sank4735",
+    "phone": "9114614735"
+  },
+  {
+    "name": "Shravan",
+    "fullName": "Shravan Choudhary",
+    "email": "choudhary.shravan.che25@itbhu.ac.in",
+    "password": "shra2802",
+    "phone": "9321782802"
+  },
+  {
+    "name": "Rajdeep",
+    "fullName": "Rajdeep Ghosh",
+    "email": "rajdeep.ghosh.mat25@itbhu.ac.in",
+    "password": "rajd9620",
+    "phone": "8837379620"
+  },
+  {
+    "name": "Aayush",
+    "fullName": "Aayush Sachan",
+    "email": "aayush.sachan.mat24@itbhu.ac.in",
+    "password": "aayu4722",
+    "phone": "9236754722"
+  },
+  {
+    "name": "Tufan",
+    "fullName": "Tufan Sannigrahi",
+    "email": "tufan.sannigrahi.cse25@itbhu.ac.in",
+    "password": "tufa4426",
+    "phone": "7428624426"
+  },
+  {
+    "name": "Armaan",
+    "fullName": "Armaan Saha",
+    "email": "armaan.saha.che25@itbhu.ac.in",
+    "password": "arma5053",
+    "phone": "9547555053"
+  },
+  {
+    "name": "AKTA",
+    "fullName": "AKTA",
+    "email": "akta.student.mat25@itbhu.ac.in",
+    "password": "akta3161",
+    "phone": "7678633161"
+  },
+  {
+    "name": "Ayush",
+    "fullName": "Ayush Kumar",
+    "email": "ayush.kumar.cer25@itbhu.ac.in",
+    "password": "ayus7696",
+    "phone": "9122097696"
+  },
+  {
+    "name": "DIVISHA",
+    "fullName": "DIVISHA ARORA",
+    "email": "divisha.arora.che25@itbhu.ac.in",
+    "password": "divi9965",
+    "phone": "9211459965"
+  },
+  {
+    "name": "Ankit",
+    "fullName": "Ankit kumar Agrawal",
+    "email": "ankitkr.agrawal.che24@itbhu.ac.in",
+    "password": "anki8082",
+    "phone": "6200508082"
+  },
+  {
+    "name": "PRIYANSHI",
+    "fullName": "PRIYANSHI DIXIT",
+    "email": "priyanshi.dixit.phy23@itbhu.ac.in",
+    "password": "priy7387",
+    "phone": "9458007387"
+  },
+  {
+    "name": "Rishit",
+    "fullName": "Rishit Kulkarni",
+    "email": "rishitg.kulkarni.met25@itbhu.ac.in",
+    "password": "rish6730",
+    "phone": "7972586730"
+  },
+  {
+    "name": "Nikhil",
+    "fullName": "Nikhil Kumar",
+    "email": "nikhil.kumar.cse25@itbhu.ac.in",
+    "password": "nikh6420",
+    "phone": "7646056420"
+  },
+  {
+    "name": "Bishal",
+    "fullName": "Bishal Chakrabarty",
+    "email": "bishal.chakrabarty.civ25@itbhu.ac.in",
+    "password": "bish9860",
+    "phone": "9395719860"
+  },
+  {
+    "name": "Darpan",
+    "fullName": "Darpan Rathi",
+    "email": "darpan.rathi.cd.phy24@itbhu.ac.in",
+    "password": "darp1939",
+    "phone": "9630011939"
+  },
+  {
+    "name": "Tanmay",
+    "fullName": "Tanmay Agrawal",
+    "email": "tanmay.agrawal.cse25@itbhu.ac.in",
+    "password": "tanm8099",
+    "phone": "8958188099"
+  },
+  {
+    "name": "yuvraj",
+    "fullName": "yuvraj pancholi",
+    "email": "yuvraj.pancholi.che25@itbhu.ac.in",
+    "password": "yuvr5508",
+    "phone": "9251135508"
+  },
+  {
+    "name": "Sarthak",
+    "fullName": "Sarthak Singh",
+    "email": "sarthak.singh.che25@itbhu.ac.in",
+    "password": "sart9533",
+    "phone": "9026889533"
+  },
+  {
+    "name": "Vivansh",
+    "fullName": "Vivansh Jha",
+    "email": "vivansh.jha.civ25@itbhu.ac.in",
+    "password": "viva0980",
+    "phone": "8292350980"
+  },
+  {
+    "name": "Prashasti",
+    "fullName": "Prashasti Parvin Singh",
+    "email": "prashasti.singh.che25@itbhu.ac.in",
+    "password": "pras7689",
+    "phone": "9834407689"
+  },
+  {
+    "name": "Ronak",
+    "fullName": "Ronak Gulecha",
+    "email": "ronak.gulecha.che25@itbhu.ac.in",
+    "password": "rona8326",
+    "phone": "8104978326"
+  },
+  {
+    "name": "Darshiel",
+    "fullName": "Darshiel Jain",
+    "email": "darshiel.pjain.cer25@itbhu.ac.in",
+    "password": "dars5775",
+    "phone": "7045425775"
+  },
+  {
+    "name": "Divyanshu",
+    "fullName": "Divyanshu Jaiswal",
+    "email": "divyanshu.jaiswal.ece24@itbhu.ac.in",
+    "password": "divy6884",
+    "phone": "6299916884"
+  },
+  {
+    "name": "Anvesh",
+    "fullName": "Anvesh Potnuru",
+    "email": "anvesh.potnuru.mec25@itbhu.ac.in",
+    "password": "anve4697",
+    "phone": "7999794697"
+  },
+  {
+    "name": "Atharva",
+    "fullName": "Atharva Rai",
+    "email": "atharva.rai.mat24@itbhu.ac.in",
+    "password": "atha7578",
+    "phone": "8368607578"
+  },
+  {
+    "name": "Abhinav",
+    "fullName": "Abhinav Anand",
+    "email": "abhinav.anand.cse24@itbhu.ac.in",
+    "password": "abhi1715",
+    "phone": "8368171715"
+  },
+  {
+    "name": "Nirbhik",
+    "fullName": "Nirbhik",
+    "email": "nirbhik.kumawat.cse24@itbhu.ac.in",
+    "password": "nirb2775",
+    "phone": "7023802775"
+  },
+  {
+    "name": "Yashmi",
+    "fullName": "Yashmi Bhardwaj",
+    "email": "yashmi.bhardwaj.che25@itbhu.ac.in",
+    "password": "yash2656",
+    "phone": "9636292656"
+  },
+  {
+    "name": "TANMAY",
+    "fullName": "TANMAY ALMADI",
+    "email": "tanmay.almadi.cse25@itbhu.ac.in",
+    "password": "tanm1206",
+    "phone": "9315431206"
+  },
+  {
+    "name": "Krishna",
+    "fullName": "Krishna Vashishth",
+    "email": "krishna.vashishth.chy24@itbhu.ac.in",
+    "password": "kris5744",
+    "phone": "8949205744"
+  },
+  {
+    "name": "KRISHNA",
+    "fullName": "KRISHNA LASYA DEVARA",
+    "email": "devarakrishna.lasya.cse25@itbhu.ac.in",
+    "password": "kris5208",
+    "phone": "9014455208"
+  },
+  {
+    "name": "Nishtha",
+    "fullName": "Nishtha Meratwal",
+    "email": "nishtha.meratwal.civ25@itbhu.ac.in",
+    "password": "nish1881",
+    "phone": "7728991881"
+  },
+  {
+    "name": "Harsh",
+    "fullName": "Harsh Barhate",
+    "email": "barhate.harsh.phy22@itbhu.ac.in",
+    "password": "hars8352",
+    "phone": "9975748352"
+  },
+  {
+    "name": "Vinit",
+    "fullName": "Vinit Yadav",
+    "email": "yadav.vinitrajnath.chy25@itbhu.ac.in",
+    "password": "vini1776",
+    "phone": "8898231776"
+  },
+  {
+    "name": "Prisha",
+    "fullName": "Prisha Agarwal",
+    "email": "prisha.pagarwal.cer25@itbhu.ac.in",
+    "password": "pris4707",
+    "phone": "9653284707"
+  },
+  {
+    "name": "Arnab",
+    "fullName": "Arnab Chakraborty",
+    "email": "arnab.chakraborty.mec25@itbhu.ac.in",
+    "password": "arna7016",
+    "phone": "9434847016"
+  },
+  {
+    "name": "Kanhaiya",
+    "fullName": "Kanhaiya Krishna Gupta",
+    "email": "kanhaiyakrishna.gupta.phy22@itbhu.ac.in",
+    "password": "kanh1091",
+    "phone": "9589911091"
+  },
+  {
+    "name": "Samyak",
+    "fullName": "Samyak Sambuddha",
+    "email": "samyak.sambuddha.che25@itbhu.ac.in",
+    "password": "samy9967",
+    "phone": "8470919967"
+  },
+  {
+    "name": "Rajat",
+    "fullName": "Rajat Sahu",
+    "email": "rajat.sahu.mec25@itbhu.ac.in",
+    "password": "raja8227",
+    "phone": "7470838227"
+  },
+  {
+    "name": "Dibyanshu",
+    "fullName": "Dibyanshu Samal",
+    "email": "dibyanshu.samal.eee25@itbhu.ac.in",
+    "password": "diby2379",
+    "phone": "8092232379"
+  },
+  {
+    "name": "Shashank",
+    "fullName": "Shashank Payyavula",
+    "email": "payyavula.shashank.cse25@itbhu.ac.in",
+    "password": "shas2878",
+    "phone": "9885522878"
+  },
+  {
+    "name": "Anomitra",
+    "fullName": "Anomitra Santra",
+    "email": "anomitra.santra.mat24@itbhu.ac.in",
+    "password": "anom9641",
+    "phone": "7001319641"
+  },
+  {
+    "name": "Saatvik",
+    "fullName": "Saatvik Dutta",
+    "email": "saatvik.dsenapati.bme25@itbhu.ac.in",
+    "password": "saat6922",
+    "phone": "9821826922"
+  },
+  {
+    "name": "Ansh",
+    "fullName": "Ansh Mehrotra",
+    "email": "ansh.mehrotra.mec25@itbhu.ac.in",
+    "password": "ansh8865",
+    "phone": "7058658865"
+  },
+  {
+    "name": "Saksham",
+    "fullName": "Saksham Vijay",
+    "email": "saksham.vijay.cer25@itbhu.ac.in",
+    "password": "saks1544",
+    "phone": "9636511544"
+  },
+  {
+    "name": "Sanjna",
+    "fullName": "Sanjna Barnawal",
+    "email": "sanjna.barnawal.ece25@itbhu.ac.in",
+    "password": "sanj1754",
+    "phone": "7439681754"
+  },
+  {
+    "name": "HARSHIT",
+    "fullName": "HARSHIT TANEJA",
+    "email": "harshit.taneja.mec24@itbhu.ac.in",
+    "password": "hars0014",
+    "phone": "9053930014"
+  },
+  {
+    "name": "Ashutosh",
+    "fullName": "Ashutosh Kumar",
+    "email": "ashutosh.kumar.che25@itbhu.ac.in",
+    "password": "ashu8073",
+    "phone": "9372528073"
+  },
+  {
+    "name": "vartika",
+    "fullName": "vartika mishra",
+    "email": "vartika.mishra.che25@itbhu.ac.in",
+    "password": "vart0070",
+    "phone": "6389840070"
+  },
+  {
+    "name": "Somay",
+    "fullName": "Somay Agarwal",
+    "email": "somay.agarwal.bme25@itbhu.ac.in",
+    "password": "soma2092",
+    "phone": "8949222092"
+  },
+  {
+    "name": "Aditya",
+    "fullName": "Aditya Aggarwal",
+    "email": "aditya.aggarwal.eee25@itbhu.ac.in",
+    "password": "adit0156",
+    "phone": "9910630156"
+  },
+  {
+    "name": "Anant",
+    "fullName": "Anant Singhal",
+    "email": "anant.singhal.cer25@itbhu.ac.in",
+    "password": "anan9700",
+    "phone": "9639789700"
+  },
+  {
+    "name": "Debarghya",
+    "fullName": "Debarghya Ghosh",
+    "email": "debarghya.ghosh.eee25@itbhu.ac.in",
+    "password": "deba4194",
+    "phone": "8918804194"
+  },
+  {
+    "name": "Anushka",
+    "fullName": "Anushka Sarkar",
+    "email": "anushka.sarkar.eee22@itbhu.ac.in",
+    "password": "anus5985",
+    "phone": "7760165985"
+  },
+  {
+    "name": "Arnav",
+    "fullName": "Arnav Raghuvanshi",
+    "email": "arnav.raghuvanshi.mat24@itbhu.ac.in",
+    "password": "arna8807",
+    "phone": "8448528807"
+  },
+  {
+    "name": "Aditi",
+    "fullName": "Aditi Kamble",
+    "email": "aditi.kamble.che22@itbhu.ac.in",
+    "password": "adit4369",
+    "phone": "9294544369"
+  },
+  {
+    "name": "Sachin",
+    "fullName": "Sachin Kumar",
+    "email": "sachin.kumar.met24@itbhu.ac.in",
+    "password": "sach7545",
+    "phone": "9058467545"
+  },
+  {
+    "name": "Udhitha",
+    "fullName": "Udhitha Boddepalli",
+    "email": "udhitha.boddepalli.cse23@itbhu.ac.in",
+    "password": "udhi5217",
+    "phone": "9346225217"
+  },
+  {
+    "name": "Ashirwad",
+    "fullName": "Ashirwad Mishra",
+    "email": "ashirwad.mishra.cd.cse24@itbhu.ac.in",
+    "password": "ashi3583",
+    "phone": "8076523583"
+  },
+  {
+    "name": "Madhavan",
+    "fullName": "Madhavan Pankaj Srivastava",
+    "email": "madhavan.psrivastava.met24@itbhu.ac.in",
+    "password": "madh8199",
+    "phone": "7840008199"
+  },
+  {
+    "name": "Sagnik",
+    "fullName": "Sagnik Maity",
+    "email": "sagnik.maity.min24@itbhu.ac.in",
+    "password": "sagn5105",
+    "phone": "8078635105"
+  },
+  {
+    "name": "Geetanjali",
+    "fullName": "Geetanjali Pandey",
+    "email": "geetanjali.pandey.che24@itbhu.ac.in",
+    "password": "geet4473",
+    "phone": "8208904473"
+  },
+  {
+    "name": "Urvashi",
+    "fullName": "Urvashi Goyal",
+    "email": "urvashi.goyal.eee22@itbhu.ac.in",
+    "password": "urva3161",
+    "phone": "8755413161"
+  },
+  {
+    "name": "Priyansha",
+    "fullName": "Priyansha Bharti",
+    "email": "priyansha.bharti.phe23@itbhu.ac.in",
+    "password": "priy0268",
+    "phone": "9137780268"
+  },
+  {
+    "name": "Ayushman",
+    "fullName": "Ayushman Garg",
+    "email": "ayushman.garg.mec20@itbhu.ac.in",
+    "password": "ayus5022",
+    "phone": "9810545022"
+  },
+  {
+    "name": "Baddam",
+    "fullName": "Baddam Sri Sharith Reddy",
+    "email": "bsrisharith.reddy.ece24@itbhu.ac.in",
+    "password": "badd1275",
+    "phone": "7815861275"
+  },
+  {
+    "name": "Yashvardhansinh",
+    "fullName": "Yashvardhansinh Rayjada",
+    "email": "r.yashvardhansinhp.mec23@itbhu.ac.in",
+    "password": "yash2729",
+    "phone": "8780812729"
+  },
+  {
+    "name": "DHRUV",
+    "fullName": "DHRUV CHAUHAN",
+    "email": "dhruv.chauhan.civ23@itbhu.ac.in",
+    "password": "dhru7886",
+    "phone": "8130107886"
+  },
+  {
+    "name": "Kayala",
+    "fullName": "Kayala Sasi Vardhan",
+    "email": "kayalasasi.vardhan.cse25@itbhu.ac.in",
+    "password": "kaya3819",
+    "phone": "8374983819"
+  },
+  {
+    "name": "Harshit",
+    "fullName": "Harshit Anand",
+    "email": "harshit.anand.cd.ece24@itbhu.ac.in",
+    "password": "hars7560",
+    "phone": "8294997560"
+  },
+  {
+    "name": "RENU",
+    "fullName": "RENU K",
+    "email": "renuk.bme25@itbhu.ac.in",
+    "password": "renu8816",
+    "phone": "9676758816"
+  },
+  {
+    "name": "Roshan",
+    "fullName": "Roshan kumar",
+    "email": "roshan.kumar.mat25@itbhu.ac.in",
+    "password": "rosh6820",
+    "phone": "9905096820"
+  },
+  {
+    "name": "Amit",
+    "fullName": "Amit Kumar Das",
+    "email": "amit.kdas.eee24@itbhu.ac.in",
+    "password": "amit0255",
+    "phone": "9330930255"
+  },
+  {
+    "name": "Aman",
+    "fullName": "Aman Anand",
+    "email": "aman.anand.mat25@itbhu.ac.in",
+    "password": "aman7823",
+    "phone": "9540837823"
+  },
+  {
+    "name": "Ojas",
+    "fullName": "Ojas Nakhale",
+    "email": "nakhaleojas.nilesh.phy25@itbhu.ac.in",
+    "password": "ojas3015",
+    "phone": "8983923015"
+  },
+  {
+    "name": "Harsh",
+    "fullName": "Harsh Singhvi",
+    "email": "harsh.singhvi.eee25@itbhu.ac.in",
+    "password": "hars5589",
+    "phone": "9079255589"
+  },
+  {
+    "name": "Abhinav",
+    "fullName": "Abhinav Gupta",
+    "email": "abhinav.gupta.cse25@itbhu.ac.in",
+    "password": "abhi9353",
+    "phone": "9460259353"
+  },
+  {
+    "name": "Abhinav",
+    "fullName": "Abhinav Jaiswal",
+    "email": "abhinav.jaiswal.eee22@itbhu.ac.in",
+    "password": "abhi3659",
+    "phone": "9506743659"
+  },
+  {
+    "name": "Jay",
+    "fullName": "Jay Ameta",
+    "email": "jay.ameta.cse24@itbhu.ac.in",
+    "password": "jaya8166",
+    "phone": "7297828166"
+  },
+  {
+    "name": "Satyajoy",
+    "fullName": "Satyajoy Das",
+    "email": "satyajoy.das.cd.eee24@itbhu.ac.in",
+    "password": "saty0497",
+    "phone": "9289140497"
+  },
+  {
+    "name": "Bivan",
+    "fullName": "Bivan Patra",
+    "email": "bivan.patra.phy25@itbhu.ac.in",
+    "password": "biva7523",
+    "phone": "9778867523"
+  },
+  {
+    "name": "rishi",
+    "fullName": "rishi mishra",
+    "email": "rishi.mishra.che25@itbhu.ac.in",
+    "password": "rish5335",
+    "phone": "8982825335"
+  },
+  {
+    "name": "Rohit",
+    "fullName": "Rohit Bachate",
+    "email": "rohitvishnu.bachate.cse25@itbhu.ac.in",
+    "password": "rohi2213",
+    "phone": "7972132213"
+  },
+  {
+    "name": "Niranjana",
+    "fullName": "Niranjana K",
+    "email": "niranjana.k.phe25@itbhu.ac.in",
+    "password": "nira9919",
+    "phone": "7708869919"
+  },
+  {
+    "name": "Kartik",
+    "fullName": "Kartik Gupta",
+    "email": "kartik.gupta.che25@itbhu.ac.in",
+    "password": "kart1744",
+    "phone": "6268441744"
+  },
+  {
+    "name": "Kshamta",
+    "fullName": "Kshamta Pandey",
+    "email": "kshamtapandey.phe25@itbhu.ac.in",
+    "password": "ksha4210",
+    "phone": "9406094210"
+  },
+  {
+    "name": "Aviral",
+    "fullName": "Aviral Shukla",
+    "email": "aviral.shukla.mat24@itbhu.ac.in",
+    "password": "avir7907",
+    "phone": "8127317907"
+  },
+  {
+    "name": "Ayush",
+    "fullName": "Ayush chaurasia",
+    "email": "ayush.chaurasia.apd24@itbhu.ac.in",
+    "password": "ayus0625",
+    "phone": "8650450625"
+  },
+  {
+    "name": "Ashwini",
+    "fullName": "Ashwini kumar",
+    "email": "ashwini.kumar.mec24@itbhu.ac.in",
+    "password": "ashw4467",
+    "phone": "9102944467"
+  },
+  {
+    "name": "Shivang",
+    "fullName": "Shivang Gupta",
+    "email": "shivang.gupta.che25@itbhu.ac.in",
+    "password": "shiv9743",
+    "phone": "9084999743"
+  },
+  {
+    "name": "Vaishnavi",
+    "fullName": "Vaishnavi Agarwal",
+    "email": "vaishnavi.agarwal.phe24@itbhu.ac.in",
+    "password": "vais6620",
+    "phone": "9082186620"
+  },
+  {
+    "name": "Spandan",
+    "fullName": "Spandan Kumar Mallik",
+    "email": "spandan.kmallik.bce25@itbhu.ac.in",
+    "password": "span0789",
+    "phone": "7735560789"
+  },
+  {
+    "name": "Tanmay",
+    "fullName": "Tanmay Sharma",
+    "email": "tanmay.sharma.eee19@itbhu.ac.in",
+    "password": "tanm4770",
+    "phone": "7073054770"
+  },
+  {
+    "name": "Kanak",
+    "fullName": "Kanak Maru",
+    "email": "kanak.maru.mat25@itbhu.ac.in",
+    "password": "kana9290",
+    "phone": "9203399290"
+  },
+  {
+    "name": "Hemank",
+    "fullName": "Hemank jindal",
+    "email": "hemank.jindal.cse25@itbhu.ac.in",
+    "password": "hema7187",
+    "phone": "7986707187"
+  },
+  {
+    "name": "Arpit",
+    "fullName": "Arpit Gupta",
+    "email": "arpit.gupta.mat25@itbhu.ac.in",
+    "password": "arpi9151",
+    "phone": "8287339151"
+  },
+  {
+    "name": "Saurabh",
+    "fullName": "Saurabh Kumar",
+    "email": "saurabh.kumar.cd.che24@itbhu.ac.in",
+    "password": "saur2984",
+    "phone": "6206492984"
+  },
+  {
+    "name": "Riddhima",
+    "fullName": "Riddhima Sabharwal",
+    "email": "riddhima.sabharwal.mat25@itbhu.ac.in",
+    "password": "ridd6261",
+    "phone": "7075836261"
+  },
+  {
+    "name": "Akshita",
+    "fullName": "Akshita Agarwal",
+    "email": "akshita.agarwal.cse24@itbhu.ac.in",
+    "password": "aksh3413",
+    "phone": "8076763413"
+  },
+  {
+    "name": "Madhav",
+    "fullName": "Madhav Aggarwal",
+    "email": "madhav.aggarwal.cse25@itbhu.ac.in",
+    "password": "madh1503",
+    "phone": "8264921503"
+  },
+  {
+    "name": "Gagan",
+    "fullName": "Gagan",
+    "email": "gagan.student.ece24@itbhu.ac.in",
+    "password": "gaga2713",
+    "phone": "6398102713"
+  },
+  {
+    "name": "Debadrita",
+    "fullName": "Debadrita Pal",
+    "email": "debadrita.pal.cse25@itbhu.ac.in",
+    "password": "deba4335",
+    "phone": "9693544335"
+  },
+  {
+    "name": "Ashwathi",
+    "fullName": "Ashwathi M",
+    "email": "ashwathi.m.phe25@itbhu.ac.in",
+    "password": "ashw6468",
+    "phone": "8921406468"
+  },
+  {
+    "name": "Rajesh",
+    "fullName": "Rajesh Kumar Dheeravath",
+    "email": "dheeravath.rajeshkr.ece24@itbhu.ac.in",
+    "password": "raje0505",
+    "phone": "9515920505"
+  },
+  {
+    "name": "Ayush",
+    "fullName": "Ayush Gupta",
+    "email": "ayush.gupta.che25@itbhu.ac.in",
+    "password": "ayus3673",
+    "phone": "8178093673"
+  },
+  {
+    "name": "Harsh",
+    "fullName": "Harsh Kumar Gupta",
+    "email": "harshkr.gupta.cd.che24@itbhu.ac.in",
+    "password": "hars1258",
+    "phone": "6206091258"
+  },
+  {
+    "name": "Sankalp",
+    "fullName": "Sankalp Vats",
+    "email": "sankalp.vats.che24@itbhu.ac.in",
+    "password": "sank2423",
+    "phone": "8218482423"
+  },
+  {
+    "name": "Ashmit",
+    "fullName": "Ashmit Puranik",
+    "email": "ashmit.puranik.che25@itbhu.ac.in",
+    "password": "ashm9329",
+    "phone": "9137929329"
+  },
+  {
+    "name": "Manya",
+    "fullName": "Manya Jain",
+    "email": "manya.jain.mst25@itbhu.ac.in",
+    "password": "many1068",
+    "phone": "9411031068"
+  },
+  {
+    "name": "Shivam",
+    "fullName": "Shivam Tekriwal",
+    "email": "shivam.tekriwal.phe25@itbhu.ac.in",
+    "password": "shiv1940",
+    "phone": "8102151940"
+  },
+  {
+    "name": "Arya",
+    "fullName": "Arya Agrawal",
+    "email": "aryagovind.agrawal.chy25@itbhu.ac.in",
+    "password": "arya1227",
+    "phone": "9209631227"
+  },
+  {
+    "name": "Saish",
+    "fullName": "Saish Kadu",
+    "email": "kadusaish.digambar.eee25@itbhu.ac.in",
+    "password": "sais1326",
+    "phone": "7900121326"
+  },
+  {
+    "name": "Vansh",
+    "fullName": "Vansh Gupta",
+    "email": "vansh.gupta.ece25@itbhu.ac.in",
+    "password": "vans6197",
+    "phone": "7874846197"
+  },
+  {
+    "name": "Ayush",
+    "fullName": "Ayush Prakash",
+    "email": "ayush.prakash.mec24@itbhu.ac.in",
+    "password": "ayus9400",
+    "phone": "9523659400"
+  },
+  {
+    "name": "Vansh",
+    "fullName": "Vansh Gilhotra",
+    "email": "vansh.gilhotra.min24@itbhu.ac.in",
+    "password": "vans3251",
+    "phone": "8003523251"
+  },
+  {
+    "name": "Sahil",
+    "fullName": "Sahil Ratna",
+    "email": "sahil.ratna.mec25@itbhu.ac.in",
+    "password": "sahi8166",
+    "phone": "9470878166"
+  },
+  {
+    "name": "Yash",
+    "fullName": "Yash Dubey",
+    "email": "yash.dubey.ece24@itbhu.ac.in",
+    "password": "yash5720",
+    "phone": "8318345720"
+  },
+  {
+    "name": "Kutubkhan",
+    "fullName": "Kutubkhan Bhatiya",
+    "email": "kutubkhan.hbhatiya.phy23@itbhu.ac.in",
+    "password": "kutu7533",
+    "phone": "8320317533"
+  },
+  {
+    "name": "Litheesh",
+    "fullName": "Litheesh Krishnan E",
+    "email": "litheesh.krishnane.bce25@itbhu.ac.in",
+    "password": "lith7247",
+    "phone": "6369597247"
+  },
+  {
+    "name": "Arjun",
+    "fullName": "Arjun Morya",
+    "email": "arjun.morya.cer24@itbhu.ac.in",
+    "password": "arju9088",
+    "phone": "9950669088"
+  },
+  {
+    "name": "Abhitosa",
+    "fullName": "Abhitosa Pradhan",
+    "email": "abhitosa.pradhan.mec25@itbhu.ac.in",
+    "password": "abhi0820",
+    "phone": "8249080820"
+  },
+  {
+    "name": "Ishant",
+    "fullName": "Ishant Singh",
+    "email": "ishant.singh.che24@itbhu.ac.in",
+    "password": "isha1153",
+    "phone": "8209251153"
+  },
+  {
+    "name": "P.V.K.Sathwic",
+    "fullName": "P.V.K.Sathwic",
+    "email": "pvkarthikeya.sathwic.cse25@itbhu.ac.in",
+    "password": "p.v.3053",
+    "phone": "6309783053"
+  },
+  {
+    "name": "Aayush",
+    "fullName": "Aayush Kumar Sinha",
+    "email": "aayushkr.sinha.mec25@itbhu.ac.in",
+    "password": "aayu2319",
+    "phone": "8177062319"
+  },
+  {
+    "name": "UTKARSH",
+    "fullName": "UTKARSH KUMAR SINGH",
+    "email": "utkarshkumar.singh.eee25@itbhu.ac.in",
+    "password": "utka9247",
+    "phone": "6205399247"
+  },
+  {
+    "name": "Sarvesh",
+    "fullName": "Sarvesh Deshpande",
+    "email": "deshpande.sarvesh.phe22@itbhu.ac.in",
+    "password": "sarv3597",
+    "phone": "9284863597"
+  },
+  {
+    "name": "M",
+    "fullName": "M HARSHAVARDHAN REDDY",
+    "email": "mharshavardhan.reddy.cse25@itbhu.ac.in",
+    "password": "mhar6720",
+    "phone": "9059496720"
+  },
+  {
+    "name": "Hemanth",
+    "fullName": "Hemanth",
+    "email": "vankudoth.hemanth.mec22@itbhu.ac.in",
+    "password": "hema6040",
+    "phone": "9550106040"
+  },
+  {
+    "name": "Hitansh",
+    "fullName": "Hitansh Aggarwal",
+    "email": "hitansh.aggarwal.cse25@itbhu.ac.in",
+    "password": "hita7977",
+    "phone": "9138077977"
+  },
+  {
+    "name": "ganguly",
+    "fullName": "ganguly singh",
+    "email": "ganguly.singh.bce21@itbhu.ac.in",
+    "password": "gang9481",
+    "phone": "9015229481"
+  },
+  {
+    "name": "Madhav",
+    "fullName": "Madhav Agrawal",
+    "email": "madhav.agrawal.mst22@itbhu.ac.in",
+    "password": "madh9612",
+    "phone": "9351249612"
+  },
+  {
+    "name": "Naitik",
+    "fullName": "Naitik Jain",
+    "email": "naitik.jain.civ25@itbhu.ac.in",
+    "password": "nait7475",
+    "phone": "7471197475"
+  },
+  {
+    "name": "Aditya",
+    "fullName": "Aditya Nimbalkar",
+    "email": "aditya.pnimbalkar.che25@itbhu.ac.in",
+    "password": "adit5554",
+    "phone": "9921385554"
+  },
+  {
+    "name": "Aamod",
+    "fullName": "Aamod Menon",
+    "email": "menonaamod.santosh.eee22@itbhu.ac.in",
+    "password": "aamo9381",
+    "phone": "7990999381"
+  },
+  {
+    "name": "Shashwat",
+    "fullName": "Shashwat",
+    "email": "shashwat.student.civ25@itbhu.ac.in",
+    "password": "shas3288",
+    "phone": "9336393288"
+  },
+  {
+    "name": "Yashvardhan",
+    "fullName": "Yashvardhan Singh",
+    "email": "yashvardhan.singh.mec23@itbhu.ac.in",
+    "password": "yash8353",
+    "phone": "7037028353"
+  },
+  {
+    "name": "Moinak",
+    "fullName": "Moinak Mondal",
+    "email": "moinak.mondal.mat24@itbhu.ac.in",
+    "password": "moin8127",
+    "phone": "9831758127"
+  },
+  {
+    "name": "Satyam",
+    "fullName": "Satyam Sinha",
+    "email": "satyam.sinha.cd.phy23@itbhu.ac.in",
+    "password": "saty1939",
+    "phone": "8409711939"
+  },
+  {
+    "name": "Rajat",
+    "fullName": "Rajat Kumar Panda",
+    "email": "rajatkumar.panda.eee25@itbhu.ac.in",
+    "password": "raja9865",
+    "phone": "8750339865"
+  },
+  {
+    "name": "Saksham",
+    "fullName": "Saksham Gupta",
+    "email": "saksham.gupta.eee25@itbhu.ac.in",
+    "password": "saks9290",
+    "phone": "8700819290"
+  },
+  {
+    "name": "Arush",
+    "fullName": "Arush Amit Moghe",
+    "email": "arushamit.moghe.civ24@itbhu.ac.in",
+    "password": "arus0396",
+    "phone": "9167060396"
+  },
+  {
+    "name": "Devansh",
+    "fullName": "Devansh Gupta",
+    "email": "devansh.gupta.mec25@itbhu.ac.in",
+    "password": "deva7007",
+    "phone": "8299747007"
+  },
+  {
+    "name": "Himanshu",
+    "fullName": "Himanshu Sahoo",
+    "email": "himanshu.sahoo.civ25@itbhu.ac.in",
+    "password": "hima3121",
+    "phone": "7727023121"
+  },
+  {
+    "name": "Ishan",
+    "fullName": "Ishan Singh",
+    "email": "ishan.singh.che25@itbhu.ac.in",
+    "password": "isha9838",
+    "phone": "9696669838"
+  },
+  {
+    "name": "Rishabh",
+    "fullName": "Rishabh Singh",
+    "email": "rishabh.singh.che24@itbhu.ac.in",
+    "password": "rish8916",
+    "phone": "7905218916"
+  },
+  {
+    "name": "Akshat",
+    "fullName": "Akshat Agrawal",
+    "email": "akshat.agrawal.bme25@itbhu.ac.in",
+    "password": "aksh6752",
+    "phone": "9861046752"
+  },
+  {
+    "name": "Apoorva",
+    "fullName": "Apoorva",
+    "email": "apoorva.rajabhoj.met24@itbhu.ac.in",
+    "password": "apoo9236",
+    "phone": "8799639236"
+  },
+  {
+    "name": "Praveen",
+    "fullName": "Praveen Marandi",
+    "email": "praveen.marandi.met25@itbhu.ac.in",
+    "password": "prav1891",
+    "phone": "7856081891"
+  },
+  {
+    "name": "Madhav",
+    "fullName": "Madhav Sah",
+    "email": "madhav.sah.cer25@itbhu.ac.in",
+    "password": "madh2897",
+    "phone": "9155592897"
+  },
+  {
+    "name": "Ishaan",
+    "fullName": "Ishaan Anchan",
+    "email": "ishaanjaya.anchan.mec25@itbhu.ac.in",
+    "password": "isha1331",
+    "phone": "8591601331"
+  },
+  {
+    "name": "Gaurav",
+    "fullName": "Gaurav Kumar",
+    "email": "gaurav.kumar.eee23@itbhu.ac.in",
+    "password": "gaur6640",
+    "phone": "9305056640"
+  },
+  {
+    "name": "Aarnav",
+    "fullName": "Aarnav Bhagat",
+    "email": "aarnav.bhagat.min25@itbhu.ac.in",
+    "password": "aarn8092",
+    "phone": "9270558092"
+  },
+  {
+    "name": "Avika",
+    "fullName": "Avika Chauhan",
+    "email": "avika.chauhan.cd.civ24@itbhu.ac.in",
+    "password": "avik3404",
+    "phone": "7303013404"
+  },
+  {
+    "name": "Shyamal",
+    "fullName": "Shyamal",
+    "email": "shyamal.student.civ25@itbhu.ac.in",
+    "password": "shya0045",
+    "phone": "9810940045"
+  },
+  {
+    "name": "Soham",
+    "fullName": "Soham Dutt Pandey",
+    "email": "sohamdutt.pandey.eee25@itbhu.ac.in",
+    "password": "soha0838",
+    "phone": "7905440838"
+  },
+  {
+    "name": "Anup",
+    "fullName": "Anup Mall",
+    "email": "anup.mall.met24@itbhu.ac.in",
+    "password": "anup2552",
+    "phone": "9580532552"
+  },
+  {
+    "name": "Satvik",
+    "fullName": "Satvik Sharma",
+    "email": "satvik.sharma.mat25@itbhu.ac.in",
+    "password": "satv8084",
+    "phone": "9569828084"
+  },
+  {
+    "name": "Deepak",
+    "fullName": "Deepak Gangwar",
+    "email": "deepak.gangwar.che25@itbhu.ac.in",
+    "password": "deep9675",
+    "phone": "9690769675"
+  },
+  {
+    "name": "Utkarsh",
+    "fullName": "Utkarsh Bhaskar",
+    "email": "utkarsh.bhaskar.eee25@itbhu.ac.in",
+    "password": "utka8508",
+    "phone": "6307838508"
+  },
+  {
+    "name": "Krishna",
+    "fullName": "Krishna Saluja",
+    "email": "krishna.saluja.mat25@itbhu.ac.in",
+    "password": "kris9694",
+    "phone": "7082379694"
+  },
+  {
+    "name": "Pranjal",
+    "fullName": "Pranjal Choudhary",
+    "email": "pranjal.rkchoudhary.cer25@itbhu.ac.in",
+    "password": "pran7001",
+    "phone": "8291957001"
+  },
+  {
+    "name": "pushkar",
+    "fullName": "pushkar srivastava",
+    "email": "pushkar.srivastava.met25@itbhu.ac.in",
+    "password": "push6162",
+    "phone": "8948896162"
+  },
+  {
+    "name": "Arhaan",
+    "fullName": "Arhaan Ahmad",
+    "email": "arhaan.ahmad.che25@itbhu.ac.in",
+    "password": "arha3885",
+    "phone": "9198113885"
+  },
+  {
+    "name": "Avneet",
+    "fullName": "Avneet Singh",
+    "email": "avneet.singh.met25@itbhu.ac.in",
+    "password": "avne6469",
+    "phone": "8269476469"
+  },
+  {
+    "name": "Debtanay",
+    "fullName": "Debtanay Sarkar",
+    "email": "debtanay.sarkar.mat25@itbhu.ac.in",
+    "password": "debt2890",
+    "phone": "9755112890"
+  },
+  {
+    "name": "Piyush",
+    "fullName": "Piyush Maheshwari",
+    "email": "piyush.maheshwari.che25@itbhu.ac.in",
+    "password": "piyu9884",
+    "phone": "9992169884"
+  },
+  {
+    "name": "Jagat",
+    "fullName": "Jagat Pradip Das",
+    "email": "jagatpradipdas.rs.mec25@itbhu.ac.in",
+    "password": "jaga0573",
+    "phone": "9008150573"
+  },
+  {
+    "name": "Sahil",
+    "fullName": "Sahil Lohani",
+    "email": "sahil.student.eee24@itbhu.ac.in",
+    "password": "sahi5597",
+    "phone": "8690505597"
+  },
+  {
+    "name": "Divyesh",
+    "fullName": "Divyesh Raniwal",
+    "email": "divyesh.raniwal.cse25@itbhu.ac.in",
+    "password": "divy3803",
+    "phone": "7852833803"
+  },
+  {
+    "name": "Shyam",
+    "fullName": "Shyam Agrawal",
+    "email": "shyam.agrawal.ece25@itbhu.ac.in",
+    "password": "shya8695",
+    "phone": "6398448695"
+  },
+  {
+    "name": "Versha",
+    "fullName": "Versha Nishad",
+    "email": "versha.nishad.che25@itbhu.ac.in",
+    "password": "vers0792",
+    "phone": "9214070792"
+  },
+  {
+    "name": "Dishant",
+    "fullName": "Dishant Sharma",
+    "email": "dishant.sharma.mat24@itbhu.ac.in",
+    "password": "dish9717",
+    "phone": "9996859717"
+  },
+  {
+    "name": "Kanisk",
+    "fullName": "Kanisk Kumar",
+    "email": "kanisk.kumar.civ25@itbhu.ac.in",
+    "password": "kani6497",
+    "phone": "7261096497"
+  },
+  {
+    "name": "Kapil",
+    "fullName": "Kapil Saradhna",
+    "email": "kapil.saradhna.phe24@itbhu.ac.in",
+    "password": "kapi4525",
+    "phone": "7296994525"
+  },
+  {
+    "name": "Mohan",
+    "fullName": "Mohan Kumar",
+    "email": "mohan.kumar.min22@itbhu.ac.in",
+    "password": "moha6069",
+    "phone": "6205836069"
+  },
+  {
+    "name": "Anushka",
+    "fullName": "Anushka",
+    "email": "anushka.student.che25@itbhu.ac.in",
+    "password": "anus7976",
+    "phone": "7903477976"
+  },
+  {
+    "name": "Aayush",
+    "fullName": "Aayush Gupta",
+    "email": "aayush.gupta.che24@itbhu.ac.in",
+    "password": "aayu9072",
+    "phone": "9818839072"
+  },
+  {
+    "name": "Sarita",
+    "fullName": "Sarita Nemiwal",
+    "email": "sarita.nemiwal.min25@itbhu.ac.in",
+    "password": "sari8952",
+    "phone": "9680168952"
+  },
+  {
+    "name": "Kanishka",
+    "fullName": "Kanishka Gone",
+    "email": "gone.kanishka.min25@itbhu.ac.in",
+    "password": "kani3449",
+    "phone": "7569083449"
+  },
+  {
+    "name": "Shubh",
+    "fullName": "Shubh Agrawal",
+    "email": "shubh.agrawal.che25@itbhu.ac.in",
+    "password": "shub5556",
+    "phone": "8700945556"
+  },
+  {
+    "name": "Pranay",
+    "fullName": "Pranay Shukla",
+    "email": "pranay.shukla.cse24@itbhu.ac.in",
+    "password": "pran4435",
+    "phone": "9511494435"
+  },
+  {
+    "name": "Ananya",
+    "fullName": "Ananya Prabhav",
+    "email": "ananya.prabhav.cse25@itbhu.ac.in",
+    "password": "anan6352",
+    "phone": "9654326352"
+  },
+  {
+    "name": "Harshit",
+    "fullName": "Harshit Vaghamshi",
+    "email": "vaghamshi.harshitv.cse24@itbhu.ac.in",
+    "password": "hars0443",
+    "phone": "8849990443"
+  },
+  {
+    "name": "Sriman",
+    "fullName": "Sriman bishnu prasad Satapathy",
+    "email": "sbishnupd.satapathy.cse25@itbhu.ac.in",
+    "password": "srim9504",
+    "phone": "7978319504"
+  },
+  {
+    "name": "ARYAN",
+    "fullName": "ARYAN V NAIR",
+    "email": "aryan.vnair.ece25@itbhu.ac.in",
+    "password": "arya2370",
+    "phone": "9845282370"
+  },
+  {
+    "name": "Asmita",
+    "fullName": "Asmita Hargude",
+    "email": "asmita.hargude.phy25@itbhu.ac.in",
+    "password": "asmi0604",
+    "phone": "9324500604"
+  },
+  {
+    "name": "Sambhav",
+    "fullName": "Sambhav kumar singh",
+    "email": "sambhav.ksingh.che25@itbhu.ac.in",
+    "password": "samb5161",
+    "phone": "7289075161"
+  },
+  {
+    "name": "Yashwardhan",
+    "fullName": "Yashwardhan Chaurasia",
+    "email": "yashwardhan.chaurasia.che25@itbhu.ac.in",
+    "password": "yash3002",
+    "phone": "7389693002"
+  },
+  {
+    "name": "Akula",
+    "fullName": "Akula Niharika",
+    "email": "akula.niharika.min25@itbhu.ac.in",
+    "password": "akul5303",
+    "phone": "9100285303"
+  },
+  {
+    "name": "Harsh",
+    "fullName": "Harsh Singh",
+    "email": "harsh.singh.mat25@itbhu.ac.in",
+    "password": "hars3731",
+    "phone": "8303723731"
+  },
+  {
+    "name": "Vivek",
+    "fullName": "Vivek Kumar Manjhi",
+    "email": "vivekkumar.manjhi.met25@itbhu.ac.in",
+    "password": "vive7530",
+    "phone": "9113767530"
+  },
+  {
+    "name": "Vedant",
+    "fullName": "Vedant Gupta Shaw",
+    "email": "vedantgupta.shaw.che25@itbhu.ac.in",
+    "password": "veda7967",
+    "phone": "6289177967"
+  },
+  {
+    "name": "Shristi",
+    "fullName": "Shristi Pal",
+    "email": "shristi.pal.civ23@itbhu.ac.in",
+    "password": "shri3251",
+    "phone": "8957553251"
+  },
+  {
+    "name": "Ashish",
+    "fullName": "Ashish kumar",
+    "email": "ashish.kumar.mst24@itbhu.ac.in",
+    "password": "ashi1857",
+    "phone": "8480481857"
+  },
+  {
+    "name": "Sarvesh",
+    "fullName": "Sarvesh Pal",
+    "email": "sarvesh.pal.mst24@itbhu.ac.in",
+    "password": "sarv6134",
+    "phone": "7317226134"
+  },
+  {
+    "name": "Aditya",
+    "fullName": "Aditya Vinod Chougule",
+    "email": "adityav.chougule.che25@itbhu.ac.in",
+    "password": "adit9629",
+    "phone": "9309499629"
+  },
+  {
+    "name": "Mahi",
+    "fullName": "Mahi",
+    "email": "mahi.student.che25@itbhu.ac.in",
+    "password": "mahi9893",
+    "phone": "8851599893"
+  },
+  {
+    "name": "Gaurav",
+    "fullName": "Gaurav Kumar",
+    "email": "gaurav.kumar.ece25@itbhu.ac.in",
+    "password": "gaur8319",
+    "phone": "8969938319"
+  },
+  {
+    "name": "Siddharth",
+    "fullName": "Siddharth C S",
+    "email": "siddharth.cs.che25@itbhu.ac.in",
+    "password": "sidd0471",
+    "phone": "9809070471"
+  },
+  {
+    "name": "Kanav",
+    "fullName": "Kanav",
+    "email": "kanav.student.cse25@itbhu.ac.in",
+    "password": "kana0371",
+    "phone": "9518440371"
+  },
+  {
+    "name": "Aryan",
+    "fullName": "Aryan Rath",
+    "email": "aryan.rath.min25@itbhu.ac.in",
+    "password": "arya9929",
+    "phone": "7735989929"
+  },
+  {
+    "name": "iedfa",
+    "fullName": "iedfa",
+    "email": "arnavkumar.sinha.cse22@itbhu.ac.in",
+    "password": "iedf9793",
+    "phone": "9466379793"
+  },
+  {
+    "name": "Pranav",
+    "fullName": "Pranav Agrawal",
+    "email": "pranav.agrawal.min25@itbhu.ac.in",
+    "password": "pran7994",
+    "phone": "9799077994"
+  },
+  {
+    "name": "Maan",
+    "fullName": "Maan Shah",
+    "email": "shah.maan.che24@itbhu.ac.in",
+    "password": "maan4440",
+    "phone": "9737014440"
+  },
+  {
+    "name": "Ashwani",
+    "fullName": "Ashwani Kumar",
+    "email": "ashwani.kumar.eee25@itbhu.ac.in",
+    "password": "ashw8839",
+    "phone": "9204478839"
+  },
+  {
+    "name": "Yakkanti",
+    "fullName": "Yakkanti Venkata Suresh Kumar Reddy",
+    "email": "yvenkata.skreddy.cse25@itbhu.ac.in",
+    "password": "yakk5707",
+    "phone": "9381595707"
+  },
+  {
+    "name": "Pragna",
+    "fullName": "Pragna Sri",
+    "email": "kpragna.sri.met25@itbhu.ac.in",
+    "password": "prag5766",
+    "phone": "6304015766"
+  },
+  {
+    "name": "Charan",
+    "fullName": "Charan Teja Madire",
+    "email": "madirecharan.teja.mat25@itbhu.ac.in",
+    "password": "char5723",
+    "phone": "9010405723"
+  },
+  {
+    "name": "Sarthak",
+    "fullName": "Sarthak Rajesh Utture",
+    "email": "sarthakrajeshutture.bce25@itbhu.ac.in",
+    "password": "sart7725",
+    "phone": "7420007725"
+  },
+  {
+    "name": "VISHNU",
+    "fullName": "VISHNU ABHINAV",
+    "email": "s.vishnuabhinav.met25@itbhu.ac.in",
+    "password": "vish4836",
+    "phone": "7569514836"
+  },
+  {
+    "name": "Mohit",
+    "fullName": "Mohit Burdak",
+    "email": "mohit.burdak.eee25@itbhu.ac.in",
+    "password": "mohi6477",
+    "phone": "8209776477"
+  },
+  {
+    "name": "Varikuppala",
+    "fullName": "Varikuppala Shashank",
+    "email": "varikuppala.shashank.min25@itbhu.ac.in",
+    "password": "vari6641",
+    "phone": "8978586641"
+  },
+  {
+    "name": "Nandyala",
+    "fullName": "Nandyala Vani",
+    "email": "nandyala.vani.che22@itbhu.ac.in",
+    "password": "nand9833",
+    "phone": "8977999833"
+  },
+  {
+    "name": "Meet",
+    "fullName": "Meet H Dand",
+    "email": "meeth.dand.cd.civ24@itbhu.ac.in",
+    "password": "meet9269",
+    "phone": "7075019269"
+  },
+  {
+    "name": "Venkata",
+    "fullName": "Venkata Sai Sriram Jakkipelli",
+    "email": "vssriram.jakkipelli.met25@itbhu.ac.in",
+    "password": "venk1177",
+    "phone": "7702051177"
+  },
+  {
+    "name": "Sankalp",
+    "fullName": "Sankalp Gupta",
+    "email": "sankalp.gupta.mat25@itbhu.ac.in",
+    "password": "sank2090",
+    "phone": "6398272090"
+  },
+  {
+    "name": "Manavi",
+    "fullName": "Manavi Laur",
+    "email": "manavi.laur.cse25@itbhu.ac.in",
+    "password": "mana5640",
+    "phone": "8178415640"
+  },
+  {
+    "name": "Shourya",
+    "fullName": "Shourya Jaiswal",
+    "email": "jaiswal.shourya.civ25@itbhu.ac.in",
+    "password": "shou6755",
+    "phone": "9137466755"
+  },
+  {
+    "name": "Aman",
+    "fullName": "Aman Sahu",
+    "email": "amans.sahu.mat25@itbhu.ac.in",
+    "password": "aman1762",
+    "phone": "9321211762"
+  },
+  {
+    "name": "Kandhi",
+    "fullName": "Kandhi Anisha Rao",
+    "email": "kandhianisha.rao.che25@itbhu.ac.in",
+    "password": "kand3161",
+    "phone": "8073313161"
+  },
+  {
+    "name": "Anuj",
+    "fullName": "Anuj Khichi",
+    "email": "anuj.student.cse25@itbhu.ac.in",
+    "password": "anuj7991",
+    "phone": "9996977991"
+  },
+  {
+    "name": "Satyak",
+    "fullName": "Satyak Pandey",
+    "email": "satyak.pandey.mat25@itbhu.ac.in",
+    "password": "saty9824",
+    "phone": "8982839824"
+  },
+  {
+    "name": "Yash",
+    "fullName": "Yash Diwakar Kohale",
+    "email": "yashdiwakar.kohale.cse25@itbhu.ac.in",
+    "password": "yash5633",
+    "phone": "9175215633"
+  },
+  {
+    "name": "Advitya",
+    "fullName": "Advitya Khullar",
+    "email": "advitya.khullar.civ25@itbhu.ac.in",
+    "password": "advi8526",
+    "phone": "8439058526"
+  },
+  {
+    "name": "Satyam",
+    "fullName": "Satyam Sharma",
+    "email": "satyam.sharma.phe23@itbhu.ac.in",
+    "password": "saty0631",
+    "phone": "7004540631"
+  },
+  {
+    "name": "Samriddhi",
+    "fullName": "Samriddhi Agarwal",
+    "email": "samriddhi.agarwal.min23@itbhu.ac.in",
+    "password": "samr2339",
+    "phone": "9258232339"
+  },
+  {
+    "name": "Sneha",
+    "fullName": "Sneha Garg",
+    "email": "sneha.garg.civ25@itbhu.ac.in",
+    "password": "sneh5448",
+    "phone": "9817875448"
+  },
+  {
+    "name": "Prem",
+    "fullName": "Prem Solanke",
+    "email": "premc.solanke.mec25@itbhu.ac.in",
+    "password": "prem1872",
+    "phone": "9653181872"
+  },
+  {
+    "name": "Prathmesh",
+    "fullName": "Prathmesh Jadhav",
+    "email": "prathmesh.hjadhav.mec25@itbhu.ac.in",
+    "password": "prat2905",
+    "phone": "9970172905"
+  },
+  {
+    "name": "Vaishnavi",
+    "fullName": "Vaishnavi",
+    "email": "vaishnavi.ajaypal.mec25@itbhu.ac.in",
+    "password": "vais6582",
+    "phone": "8999196582"
+  },
+  {
+    "name": "Madhavan",
+    "fullName": "Madhavan Saini",
+    "email": "madhavan.saini.mat24@itbhu.ac.in",
+    "password": "madh3446",
+    "phone": "9450493446"
+  },
+  {
+    "name": "Sadanala",
+    "fullName": "Sadanala Nandini Priya",
+    "email": "snandini.priya.ece24@itbhu.ac.in",
+    "password": "sada2155",
+    "phone": "7382132155"
+  },
+  {
+    "name": "Prakhar",
+    "fullName": "Prakhar Yadav",
+    "email": "prakhar.yadav.min25@itbhu.ac.in",
+    "password": "prak0973",
+    "phone": "7457990973"
+  },
+  {
+    "name": "kriti",
+    "fullName": "kriti pareek",
+    "email": "kriti.pareek.cd.mst24@itbhu.ac.in",
+    "password": "krit1173",
+    "phone": "7990371173"
+  },
+  {
+    "name": "Divyani",
+    "fullName": "Divyani Saxena",
+    "email": "divyani.saxena.che25@itbhu.ac.in",
+    "password": "divy9880",
+    "phone": "9752009880"
+  },
+  {
+    "name": "Ramnath",
+    "fullName": "Ramnath T R",
+    "email": "ramnath.tr.met25@itbhu.ac.in",
+    "password": "ramn2027",
+    "phone": "9445372027"
+  },
+  {
+    "name": "Angel",
+    "fullName": "Angel Yadav",
+    "email": "angel.yadav.met25@itbhu.ac.in",
+    "password": "ange0507",
+    "phone": "7355880507"
+  },
+  {
+    "name": "ASHUTOSH",
+    "fullName": "ASHUTOSH CHATURVEDI",
+    "email": "ashutosh.chaturvedi.eee23@itbhu.ac.in",
+    "password": "ashu5593",
+    "phone": "9208095593"
+  },
+  {
+    "name": "Vivek",
+    "fullName": "Vivek Saxena",
+    "email": "vivek.saxena.mec24@itbhu.ac.in",
+    "password": "vive0007",
+    "phone": "9406880007"
+  },
+  {
+    "name": "Yashika",
+    "fullName": "Yashika Gandhi",
+    "email": "yashika.gandhi.mec25@itbhu.ac.in",
+    "password": "yash3332",
+    "phone": "8882643332"
+  },
+  {
+    "name": "Kaustubh",
+    "fullName": "Kaustubh Roy",
+    "email": "kaustubh.kroy.cd.mec24@itbhu.ac.in",
+    "password": "kaus8064",
+    "phone": "9004388064"
+  },
+  {
+    "name": "Ayush",
+    "fullName": "Ayush Kumar",
+    "email": "ayush.kumar.ece25@itbhu.ac.in",
+    "password": "ayus7996",
+    "phone": "7004637996"
+  },
+  {
+    "name": "Siddarth",
+    "fullName": "Siddarth Bailkeri",
+    "email": "siddarth.bailkeri.mat24@itbhu.ac.in",
+    "password": "sidd8065",
+    "phone": "8971968065"
+  },
+  {
+    "name": "Manthan",
+    "fullName": "Manthan Kapkar",
+    "email": "manthany.kapkar.ece24@itbhu.ac.in",
+    "password": "mant8643",
+    "phone": "9699148643"
+  },
+  {
+    "name": "Jitesh",
+    "fullName": "Jitesh Kumar Mishra",
+    "email": "jitesh.kmishra.cse24@itbhu.ac.in",
+    "password": "jite5929",
+    "phone": "9779465929"
+  },
+  {
+    "name": "Vikas",
+    "fullName": "Vikas gupta",
+    "email": "vikas.gupta.che25@itbhu.ac.in",
+    "password": "vika5287",
+    "phone": "8085085287"
+  },
+  {
+    "name": "safdar",
+    "fullName": "safdar hayat khan",
+    "email": "safdar.hayatkhan.cse25@itbhu.ac.in",
+    "password": "safd7259",
+    "phone": "9056507259"
+  },
+  {
+    "name": "Sahil",
+    "fullName": "Sahil",
+    "email": "sahil.student.chy25@itbhu.ac.in",
+    "password": "sahi2802",
+    "phone": "9306692802"
+  },
+  {
+    "name": "Yash",
+    "fullName": "Yash Kumar",
+    "email": "yash.kumar.che25@itbhu.ac.in",
+    "password": "yash6497",
+    "phone": "7778806497"
+  },
+  {
+    "name": "DIPNITA",
+    "fullName": "DIPNITA GAUTAM",
+    "email": "dipnita.gautam.che25@itbhu.ac.in",
+    "password": "dipn2860",
+    "phone": "9214752860"
+  },
+  {
+    "name": "Shreyas",
+    "fullName": "Shreyas B Patil",
+    "email": "shreyasb.patil.ece25@itbhu.ac.in",
+    "password": "shre2007",
+    "phone": "6364432007"
+  },
+  {
+    "name": "Grisham",
+    "fullName": "Grisham Prateesh",
+    "email": "grisham.prateesh.chy25@itbhu.ac.in",
+    "password": "gris2790",
+    "phone": "9606742790"
+  },
+  {
+    "name": "Pratham",
+    "fullName": "Pratham Verma",
+    "email": "pratham.verma.met25@itbhu.ac.in",
+    "password": "prat2340",
+    "phone": "7755862340"
+  },
+  {
+    "name": "Vikas",
+    "fullName": "Vikas limanpure",
+    "email": "vikas.limanpure.chy25@itbhu.ac.in",
+    "password": "vika7940",
+    "phone": "9243497940"
+  },
+  {
+    "name": "Udit",
+    "fullName": "Udit Saxena",
+    "email": "udit.saxena.phy25@itbhu.ac.in",
+    "password": "udit4847",
+    "phone": "6390014847"
+  },
+  {
+    "name": "Yashasvi",
+    "fullName": "Yashasvi Mahawar",
+    "email": "yashasvi.mahawar.cse24@itbhu.ac.in",
+    "password": "yash6978",
+    "phone": "9672126978"
+  },
+  {
+    "name": "Sehajroop",
+    "fullName": "Sehajroop Singh",
+    "email": "sehajroop.singh.phe24@itbhu.ac.in",
+    "password": "seha9785",
+    "phone": "7973909785"
+  },
+  {
+    "name": "Pratham",
+    "fullName": "Pratham Garg",
+    "email": "pratham.garg.cse25@itbhu.ac.in",
+    "password": "prat8220",
+    "phone": "8146758220"
+  },
+  {
+    "name": "Athrey",
+    "fullName": "Athrey M",
+    "email": "athrey.m.cse25@itbhu.ac.in",
+    "password": "athr4655",
+    "phone": "8277054655"
+  },
+  {
+    "name": "Suraj",
+    "fullName": "Suraj Srivastava",
+    "email": "suraj.srivastava.min25@itbhu.ac.in",
+    "password": "sura4581",
+    "phone": "6393714581"
+  },
+  {
+    "name": "Pranav",
+    "fullName": "Pranav khandelwal",
+    "email": "pranav.khandelwal.eee25@itbhu.ac.in",
+    "password": "pran9694",
+    "phone": "7973159694"
+  },
+  {
+    "name": "Shivam",
+    "fullName": "Shivam Choudhary",
+    "email": "shivam.choudhary1.cse25@itbhu.ac.in",
+    "password": "shiv7210",
+    "phone": "9352247210"
+  },
+  {
+    "name": "Shubhi",
+    "fullName": "Shubhi Mishra",
+    "email": "shubhi.mishra.mat24@itbhu.ac.in",
+    "password": "shub3088",
+    "phone": "6396513088"
+  },
+  {
+    "name": "Akash",
+    "fullName": "Akash kumar",
+    "email": "akashkumar.ram.ece25@itbhu.ac.in",
+    "password": "akas4737",
+    "phone": "6299834737"
+  },
+  {
+    "name": "Divyanshu",
+    "fullName": "Divyanshu",
+    "email": "divyanshu.student.phy25@itbhu.ac.in",
+    "password": "divy3349",
+    "phone": "8789253349"
+  },
+  {
+    "name": "Vishal",
+    "fullName": "Vishal M",
+    "email": "vishal.m.che25@itbhu.ac.in",
+    "password": "vish9908",
+    "phone": "9150249908"
+  },
+  {
+    "name": "Saptarshi",
+    "fullName": "Saptarshi Banerjee",
+    "email": "saptarshi.banerjee.cd.cse24@itbhu.ac.in",
+    "password": "sapt8328",
+    "phone": "9433038328"
+  },
+  {
+    "name": "Saksham",
+    "fullName": "Saksham Madan",
+    "email": "saksham.madan.mat24@itbhu.ac.in",
+    "password": "saks3514",
+    "phone": "9896853514"
+  },
+  {
+    "name": "Yuvraj",
+    "fullName": "Yuvraj Kumar Choudhary",
+    "email": "yuvrajk.choudhary.min25@itbhu.ac.in",
+    "password": "yuvr7067",
+    "phone": "9162727067"
+  },
+  {
+    "name": "Himanshu",
+    "fullName": "Himanshu Jha",
+    "email": "himanshu.jha.che25@itbhu.ac.in",
+    "password": "hima1236",
+    "phone": "9007031236"
+  },
+  {
+    "name": "Achyut",
+    "fullName": "Achyut Tripathi",
+    "email": "achyut.tripathi.eee25@itbhu.ac.in",
+    "password": "achy3533",
+    "phone": "8595273533"
+  },
+  {
+    "name": "Diksha",
+    "fullName": "Diksha Upadhyay",
+    "email": "dikshar.upadhyay.che25@itbhu.ac.in",
+    "password": "diks2709",
+    "phone": "9049512709"
+  },
+  {
+    "name": "Paturi",
+    "fullName": "Paturi Hemanth sai",
+    "email": "paturi.hemanthsai.cse24@itbhu.ac.in",
+    "password": "patu9216",
+    "phone": "8885369216"
+  },
+  {
+    "name": "D",
+    "fullName": "D Rahul Reddy",
+    "email": "drahul.reddy.mec24@itbhu.ac.in",
+    "password": "drah6375",
+    "phone": "7899676375"
+  },
+  {
+    "name": "Aarav",
+    "fullName": "Aarav Tyagi",
+    "email": "aarav.tyagi.cse25@itbhu.ac.in",
+    "password": "aara9434",
+    "phone": "9251009434"
+  },
+  {
+    "name": "Ramzeen",
+    "fullName": "Ramzeen Musadhik",
+    "email": "ramzeen.musadhik.bme24@itbhu.ac.in",
+    "password": "ramz5633",
+    "phone": "9496765633"
+  },
+  {
+    "name": "Sakshi",
+    "fullName": "Sakshi",
+    "email": "sakshi.student.che24@itbhu.ac.in",
+    "password": "saks2264",
+    "phone": "7061642264"
+  },
+  {
+    "name": "Arya",
+    "fullName": "Arya Giri",
+    "email": "arya.giri.bme24@itbhu.ac.in",
+    "password": "arya0112",
+    "phone": "8436370112"
+  },
+  {
+    "name": "ATHARVA",
+    "fullName": "ATHARVA PANDEY",
+    "email": "atharva.pandey.che25@itbhu.ac.in",
+    "password": "atha5130",
+    "phone": "6386565130"
+  },
+  {
+    "name": "Sarthak",
+    "fullName": "Sarthak",
+    "email": "sarthak.student.cse24@itbhu.ac.in",
+    "password": "sart7077",
+    "phone": "8521887077"
+  },
+  {
+    "name": "Tarun",
+    "fullName": "Tarun Agrawal",
+    "email": "tarun.agrawal.mat24@itbhu.ac.in",
+    "password": "taru5918",
+    "phone": "6393805918"
+  },
+  {
+    "name": "Aman",
+    "fullName": "Aman Purwar",
+    "email": "aman.purwar.mec25@itbhu.ac.in",
+    "password": "aman6582",
+    "phone": "9045386582"
+  },
+  {
+    "name": "BANDI",
+    "fullName": "BANDI SIDDU KUMAR REDDY",
+    "email": "bandisiddu.kreddy.cse25@itbhu.ac.in",
+    "password": "band8555",
+    "phone": "7702208555"
+  },
+  {
+    "name": "Anmol",
+    "fullName": "Anmol Agarwal",
+    "email": "anmol.agarwal.cse24@itbhu.ac.in",
+    "password": "anmo5359",
+    "phone": "9315595359"
+  },
+  {
+    "name": "ritisha",
+    "fullName": "ritisha vivek",
+    "email": "ritisha.vivek.cer24@itbhu.ac.in",
+    "password": "riti5130",
+    "phone": "8868865130"
+  },
+  {
+    "name": "Bhavanasi",
+    "fullName": "Bhavanasi Anjana Akhileswar",
+    "email": "banjana.akhileswar.cse25@itbhu.ac.in",
+    "password": "bhav3596",
+    "phone": "7036863596"
+  },
+  {
+    "name": "Nagmani",
+    "fullName": "Nagmani jha",
+    "email": "nagmani.jha.cd.civ23@itbhu.ac.in",
+    "password": "nagm7604",
+    "phone": "8789637604"
+  }
+]
