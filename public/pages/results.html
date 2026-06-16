@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<title>MarketSmith — Results</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/css/style.css">
+<style>
+  .results-wrap { max-width: 640px; margin: 0 auto; padding: 32px 16px 60px; }
+
+  .results-title {
+    font-family: var(--font-display);
+    font-size: 30px;
+    text-align: center;
+    color: var(--gold-400);
+    margin-bottom: 22px;
+  }
+
+  .reveal-box {
+    background: linear-gradient(135deg, rgba(212,168,67,0.08), transparent);
+    border: 1px solid var(--gold-500);
+    border-radius: var(--radius-lg);
+    padding: 22px;
+    text-align: center;
+    margin-bottom: 24px;
+  }
+  .reveal-value {
+    font-family: var(--font-mono);
+    font-size: 32px;
+    color: var(--gold-400);
+    font-weight: 600;
+  }
+  .reveal-label { font-size: 12px; color: var(--ink-500); text-transform: uppercase; letter-spacing: 0.04em; margin-bottom: 4px; }
+  .digit-row { display: flex; justify-content: center; gap: 8px; margin-top: 14px; }
+  .digit-box {
+    width: 36px; height: 36px;
+    background: var(--navy-800);
+    border: 1px solid var(--navy-600);
+    border-radius: var(--radius-sm);
+    display: flex; align-items: center; justify-content: center;
+    font-family: var(--font-mono);
+    font-weight: 600;
+    color: var(--ink-100);
+  }
+
+  .rank-gold { color: var(--gold-400); font-weight: 700; }
+  .rank-silver { color: #c8ccd6; font-weight: 700; }
+  .rank-bronze { color: #cd8a5e; font-weight: 700; }
+
+  .game-id-row { text-align: center; font-size: 12px; color: var(--ink-500); margin: 20px 0; font-family: var(--font-mono); }
+
+  .countdown-row { text-align: center; font-size: 13px; color: var(--ink-500); margin: 16px 0; }
+
+  .play-again-wrap { text-align: center; margin-top: 20px; }
+  .play-again-btn { padding: 14px 36px; font-size: 15px; }
+</style>
+</head>
+<body>
+
+<header class="app-header">
+  <div class="app-header__logo">QuantX</div>
+  <div class="app-header__brand">
+    <div class="app-header__title">MARKETSMITH</div>
+  </div>
+  <div style="width:50px;"></div>
+</header>
+
+<div class="results-wrap">
+  <div class="results-title">GAME OVER</div>
+
+  <div class="reveal-box">
+    <div class="reveal-label">True Asset Value</div>
+    <div class="reveal-value" id="trueValue">—</div>
+    <div class="digit-row" id="digitRow"></div>
+  </div>
+
+  <div class="card">
+    <table>
+      <thead>
+        <tr><th>Rank</th><th>Name</th><th>Seat</th><th>Cash</th><th>Assets</th><th>Net PnL</th></tr>
+      </thead>
+      <tbody id="resultsBody">
+        <tr><td colspan="6" style="text-align:center; padding:30px;"><div class="spinner" style="margin:0 auto;"></div></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="game-id-row" id="gameIdRow">Game ID: —</div>
+  <div class="countdown-row" id="countdownRow">Returning to lobby in 30s...</div>
+
+  <div class="play-again-wrap">
+    <button class="btn btn-primary play-again-btn" id="playAgainBtn">Play Again</button>
+  </div>
+</div>
+
+<script src="/js/api.js"></script>
+<script>
+  requireAuth();
+  const gameId = window.location.pathname.split('/')[2];
+
+  function escapeHtml(str) {
+    const div = document.createElement('div');
+    div.textContent = str;
+    return div.innerHTML;
+  }
+
+  function rankClass(rank) {
+    if (rank === 1) return 'rank-gold';
+    if (rank === 2) return 'rank-silver';
+    if (rank === 3) return 'rank-bronze';
+    return '';
+  }
+
+  async function loadResults() {
+    try {
+      const data = await API.get(`/game/${gameId}`);
+
+      document.getElementById('trueValue').textContent = `$${data.trueValue}`;
+      document.getElementById('digitRow').innerHTML = (data.hiddenArray || [])
+        .map(d => `<div class="digit-box">${d}</div>`).join('');
+
+      document.getElementById('resultsBody').innerHTML = data.players.map(p => `
+        <tr>
+          <td class="${rankClass(p.rank)}">${p.rank}</td>
+          <td>${escapeHtml(p.name)}</td>
+          <td>${p.seat}</td>
+          <td>$${p.cash}</td>
+          <td>${p.assets}</td>
+          <td class="${p.netPnl >= 0 ? 'pnl-positive' : 'pnl-negative'}">${p.netPnl >= 0 ? '+' : ''}${p.netPnl}</td>
+        </tr>
+      `).join('');
+
+      document.getElementById('gameIdRow').textContent = `Game ID: ${data.roomCode || data.gameId}`;
+    } catch (err) {
+      console.error('Could not load results:', err);
+      document.getElementById('resultsBody').innerHTML =
+        '<tr><td colspan="6" style="text-align:center; padding:30px; color:var(--ink-500);">Could not load results</td></tr>';
+    }
+  }
+
+  loadResults();
+
+  // Countdown to lobby
+  let countdown = 30;
+  const countdownRow = document.getElementById('countdownRow');
+  const countdownTimer = setInterval(() => {
+    countdown--;
+    countdownRow.textContent = `Returning to lobby in ${countdown}s...`;
+    if (countdown <= 0) {
+      clearInterval(countdownTimer);
+      window.location.href = '/lobby';
+    }
+  }, 1000);
+
+  document.getElementById('playAgainBtn').addEventListener('click', async () => {
+    clearInterval(countdownTimer);
+    try {
+      const data = await API.post('/matchmaking', {});
+      window.location.href = data.isActive ? `/game/${data.gameId}` : `/waiting/${data.gameId}`;
+    } catch (err) {
+      window.location.href = '/lobby';
+    }
+  });
+</script>
+
+</body>
+</html>

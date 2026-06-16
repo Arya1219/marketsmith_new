@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<title>MarketSmith — Waiting Room</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/css/style.css">
+<style>
+  .wait-wrap {
+    min-height: calc(100vh - 70px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+  }
+
+  .wait-card { width: 100%; max-width: 440px; padding: 40px 36px; text-align: center; }
+
+  .wait-status {
+    font-size: 14px;
+    color: var(--gold-400);
+    letter-spacing: 0.03em;
+    margin-bottom: 28px;
+  }
+
+  .seat-badge {
+    display: inline-block;
+    background: var(--navy-800);
+    border: 1px solid var(--gold-500);
+    color: var(--gold-400);
+    font-family: var(--font-mono);
+    font-size: 14px;
+    padding: 8px 18px;
+    border-radius: 999px;
+    margin-bottom: 28px;
+  }
+
+  .counter-box {
+    background: var(--navy-800);
+    border-radius: var(--radius-lg);
+    padding: 28px;
+    margin-bottom: 24px;
+  }
+
+  .counter-value {
+    font-family: var(--font-mono);
+    font-size: 48px;
+    font-weight: 600;
+    color: var(--gold-400);
+    line-height: 1;
+  }
+
+  .counter-label {
+    font-size: 12px;
+    color: var(--ink-500);
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    margin-top: 8px;
+  }
+
+  .seat-dots { display: flex; justify-content: center; gap: 8px; margin-top: 16px; }
+  .seat-dot {
+    width: 10px; height: 10px; border-radius: 50%;
+    background: var(--navy-600);
+  }
+  .seat-dot.filled { background: var(--gold-500); }
+
+  .wait-msg { color: var(--ink-500); font-size: 13px; }
+</style>
+</head>
+<body>
+
+<header class="app-header">
+  <div class="app-header__logo">QuantX</div>
+  <div class="app-header__brand">
+    <div class="app-header__title">MARKETSMITH</div>
+    <div class="app-header__subtitle">QuantX Week 2 · IIT BHU Quant Club</div>
+  </div>
+  <div style="width:70px;"></div>
+</header>
+
+<div class="wait-wrap">
+  <div class="card wait-card">
+    <div class="wait-status pulse">Connecting to Market...</div>
+    <div class="seat-badge" id="seatBadge">Seat —</div>
+
+    <div class="counter-box">
+      <div class="counter-value" id="counterValue">0 / 6</div>
+      <div class="counter-label">Players Joined</div>
+      <div class="seat-dots" id="seatDots"></div>
+    </div>
+
+    <div class="wait-msg">Waiting for trading session to begin...</div>
+  </div>
+</div>
+
+<script src="/js/api.js"></script>
+<script src="https://cdn.socket.io/4.6.2/socket.io.min.js"></script>
+<script>
+  requireAuth();
+
+  const gameId = window.location.pathname.split('/')[2];
+  const counterValue = document.getElementById('counterValue');
+  const seatDots = document.getElementById('seatDots');
+
+  function renderDots(count) {
+    let html = '';
+    for (let i = 0; i < 6; i++) {
+      html += `<div class="seat-dot ${i < count ? 'filled' : ''}"></div>`;
+    }
+    seatDots.innerHTML = html;
+  }
+
+  function updateCount(count) {
+    counterValue.textContent = `${count} / 6`;
+    renderDots(count);
+  }
+
+  renderDots(0);
+
+  // Connect socket
+  const socket = io({ auth: { token: API.token() } });
+
+  socket.on('connect', () => {
+    socket.emit('join_waiting', { gameId });
+  });
+
+  socket.on('player_count', (data) => {
+    updateCount(data.count);
+  });
+
+  socket.on('game_started', () => {
+    window.location.href = `/game/${gameId}`;
+  });
+
+  socket.on('connect_error', () => {
+    // Fall back to polling if socket fails
+    startPolling();
+  });
+
+  // Polling fallback / backup (covers refresh, socket drops)
+  let pollTimer = null;
+  function startPolling() {
+    if (pollTimer) return;
+    pollTimer = setInterval(async () => {
+      try {
+        const data = await API.get(`/poll/waiting/${gameId}`);
+        updateCount(data.playerCount);
+        if (data.isActive) {
+          clearInterval(pollTimer);
+          window.location.href = `/game/${gameId}`;
+        }
+      } catch (err) {
+        console.error('Poll failed:', err);
+      }
+    }, 2000);
+  }
+  startPolling();
+</script>
+
+</body>
+</html>

@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MarketSmith Admin — Dashboard</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/admin/css/admin.css">
+</head>
+<body>
+
+<header class="app-header">
+  <div class="app-header__logo">QuantX</div>
+  <div class="app-header__brand">
+    <div class="app-header__title">MARKETSMITH ADMIN</div>
+  </div>
+  <button class="btn btn-ghost btn-sm" onclick="adminLogout()">Logout</button>
+</header>
+
+<div class="admin-shell">
+
+  <div class="admin-stats-row" id="liveStats">
+    <div class="card admin-stat-card"><div class="admin-stat-value">—</div><div class="admin-stat-label">Active Games</div></div>
+    <div class="card admin-stat-card"><div class="admin-stat-value">—</div><div class="admin-stat-label">Players Online</div></div>
+    <div class="card admin-stat-card"><div class="admin-stat-value">—</div><div class="admin-stat-label">In Waiting Room</div></div>
+    <div class="card admin-stat-card"><div class="admin-stat-value">—</div><div class="admin-stat-label">In Active Rounds</div></div>
+  </div>
+
+  <div class="tabs">
+    <button class="tab active" data-tab="leaderboard">Leaderboard</button>
+    <button class="tab" data-tab="sessions">Game Sessions</button>
+    <button class="tab" data-tab="participants">Participants</button>
+    <button class="tab" data-tab="export">Export</button>
+    <button class="tab" data-tab="live">Live Monitor</button>
+  </div>
+
+  <!-- LEADERBOARD -->
+  <div class="card admin-panel" id="tab-leaderboard">
+    <div class="admin-toolbar">
+      <input class="search-input" id="leaderboardSearch" placeholder="Search name or email...">
+      <button class="btn btn-primary btn-sm" onclick="exportFile('/api/admin/export/leaderboard')">Export CSV</button>
+    </div>
+    <table>
+      <thead><tr><th>Rank</th><th>Name</th><th>Email</th><th>Games</th><th>Total PnL</th><th>Best PnL</th></tr></thead>
+      <tbody id="leaderboardBody"><tr><td colspan="6" style="text-align:center; padding:24px;">Loading...</td></tr></tbody>
+    </table>
+  </div>
+
+  <!-- GAME SESSIONS -->
+  <div class="card admin-panel" id="tab-sessions" style="display:none;">
+    <table>
+      <thead><tr><th>Room</th><th>Status</th><th>Players</th><th>True Value</th><th>Started</th><th>Finished</th><th>Actions</th></tr></thead>
+      <tbody id="sessionsBody"><tr><td colspan="7" style="text-align:center; padding:24px;">Loading...</td></tr></tbody>
+    </table>
+  </div>
+
+  <!-- PARTICIPANTS -->
+  <div class="card admin-panel" id="tab-participants" style="display:none;">
+    <div class="admin-toolbar">
+      <input class="search-input" id="participantSearch" placeholder="Search name or email...">
+    </div>
+    <table>
+      <thead><tr><th>Name</th><th>Email</th><th>Games</th><th>Total PnL</th><th>Joined</th><th>Actions</th></tr></thead>
+      <tbody id="participantsBody"><tr><td colspan="6" style="text-align:center; padding:24px;">Loading...</td></tr></tbody>
+    </table>
+  </div>
+
+  <!-- EXPORT -->
+  <div class="card admin-panel" id="tab-export" style="display:none;">
+    <div class="flex-col gap-12">
+      <div class="flex" style="justify-content:space-between; align-items:center; padding:14px; background:var(--navy-800); border-radius:8px;">
+        <div>
+          <div style="font-weight:600;">Full Leaderboard</div>
+          <div class="text-muted" style="font-size:12px;">Rank, name, email, games, total PnL, best PnL</div>
+        </div>
+        <button class="btn btn-primary btn-sm" onclick="exportFile('/api/admin/export/leaderboard')">Download CSV</button>
+      </div>
+      <div class="flex" style="justify-content:space-between; align-items:center; padding:14px; background:var(--navy-800); border-radius:8px;">
+        <div>
+          <div style="font-weight:600;">All Games — Round Breakdown</div>
+          <div class="text-muted" style="font-size:12px;">Every round, every player, for all games — use this to spot defective rounds</div>
+        </div>
+        <button class="btn btn-primary btn-sm" onclick="exportFile('/api/admin/export/games')">Download CSV</button>
+      </div>
+      <div class="flex flex-col gap-8" style="padding:14px; background:var(--navy-800); border-radius:8px;">
+        <div style="font-weight:600;">Export a Specific Game</div>
+        <div class="flex gap-8">
+          <input id="specificGameId" placeholder="Paste Game ID from Sessions tab">
+          <button class="btn btn-primary btn-sm" onclick="exportSpecificGame()">Download</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- LIVE MONITOR -->
+  <div class="card admin-panel" id="tab-live" style="display:none;">
+    <table>
+      <thead><tr><th>Room</th><th>Phase</th><th>Players</th><th>Round</th></tr></thead>
+      <tbody id="liveGamesBody"><tr><td colspan="4" style="text-align:center; padding:24px;">No active games</td></tr></tbody>
+    </table>
+  </div>
+
+</div>
+
+<!-- Game detail modal -->
+<div class="modal-overlay" id="gameModal">
+  <div class="card modal-card">
+    <button class="modal-close" onclick="closeModal()">&times;</button>
+    <div id="modalContent">Loading...</div>
+  </div>
+</div>
+
+<script>
+  const token = localStorage.getItem('ms_admin_token');
+  if (!token) window.location.href = '/admin';
+
+  function adminLogout() {
+    localStorage.removeItem('ms_admin_token');
+    window.location.href = '/admin';
+  }
+
+  async function adminFetch(path, options = {}) {
+    const headers = { 'Content-Type': 'application/json', Authorization: `Bearer ${token}`, ...options.headers };
+    const res = await fetch(path, { ...options, headers });
+    if (res.status === 401 || res.status === 403) { adminLogout(); throw new Error('Unauthorized'); }
+    const data = await res.json();
+    if (!res.ok) throw new Error(data.error || 'Request failed');
+    return data;
+  }
+
+  function escapeHtml(str) {
+    const div = document.createElement('div');
+    div.textContent = str == null ? '' : str;
+    return div.innerHTML;
+  }
+
+  function exportFile(path) {
+    fetch(path, { headers: { Authorization: `Bearer ${token}` } })
+      .then(res => res.blob())
+      .then(blob => {
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = path.split('/').pop() + '.csv';
+        a.click();
+        URL.revokeObjectURL(url);
+      })
+      .catch(err => alert('Export failed: ' + err.message));
+  }
+
+  function exportSpecificGame() {
+    const id = document.getElementById('specificGameId').value.trim();
+    if (!id) return alert('Enter a Game ID first');
+    exportFile(`/api/admin/export/games/${id}`);
+  }
+
+  // ─── Tabs ───────────────────────────────────────────────────
+  document.querySelectorAll('.tab').forEach(tab => {
+    tab.addEventListener('click', () => {
+      document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+      tab.classList.add('active');
+      ['leaderboard', 'sessions', 'participants', 'export', 'live'].forEach(name => {
+        document.getElementById('tab-' + name).style.display = 'none';
+      });
+      document.getElementById('tab-' + tab.dataset.tab).style.display = 'block';
+
+      if (tab.dataset.tab === 'sessions') loadSessions();
+      if (tab.dataset.tab === 'participants') loadParticipants();
+      if (tab.dataset.tab === 'live') loadLive();
+    });
+  });
+
+  // ─── Live stats (top bar, refreshed always) ───────────────
+  async function loadLiveStats() {
+    try {
+      const data = await adminFetch('/api/admin/live');
+      const cards = document.querySelectorAll('.admin-stat-value');
+      cards[0].textContent = data.activeGames;
+      cards[1].textContent = data.onlineTotal;
+      cards[2].textContent = data.waitingPlayers;
+      cards[3].textContent = data.activePlayers;
+    } catch (err) { console.error(err); }
+  }
+
+  // ─── Leaderboard ────────────────────────────────────────────
+  let leaderboardData = [];
+  async function loadLeaderboard() {
+    try {
+      const data = await adminFetch('/api/admin/leaderboard');
+      leaderboardData = data.leaderboard;
+      renderLeaderboard(leaderboardData);
+    } catch (err) { console.error(err); }
+  }
+
+  function renderLeaderboard(rows) {
+    const body = document.getElementById('leaderboardBody');
+    if (rows.length === 0) {
+      body.innerHTML = '<tr><td colspan="6" style="text-align:center; padding:24px;">No data</td></tr>';
+      return;
+    }
+    body.innerHTML = rows.map(r => `
+      <tr>
+        <td>${r.rank}</td>
+        <td>${escapeHtml(r.name)}</td>
+        <td>${escapeHtml(r.email)}</td>
+        <td>${r.gamesPlayed}</td>
+        <td class="${r.totalPnl >= 0 ? 'pnl-positive' : 'pnl-negative'}">${r.totalPnl >= 0 ? '+' : ''}${r.totalPnl}</td>
+        <td>${r.bestGamePnl}</td>
+      </tr>
+    `).join('');
+  }
+
+  document.getElementById('leaderboardSearch').addEventListener('input', (e) => {
+    const q = e.target.value.toLowerCase();
+    renderLeaderboard(leaderboardData.filter(r => r.name.toLowerCase().includes(q) || r.email.toLowerCase().includes(q)));
+  });
+
+  // ─── Sessions ───────────────────────────────────────────────
+  async function loadSessions() {
+    try {
+      const data = await adminFetch('/api/admin/games');
+      const body = document.getElementById('sessionsBody');
+      if (data.games.length === 0) {
+        body.innerHTML = '<tr><td colspan="7" style="text-align:center; padding:24px;">No games yet</td></tr>';
+        return;
+      }
+      body.innerHTML = data.games.map(g => `
+        <tr>
+          <td><a href="#" onclick="openGameDetail('${g.gameId}'); return false;">${g.roomCode}</a></td>
+          <td><span class="status-badge status-${g.status.toLowerCase()}">${g.status}</span></td>
+          <td>${g.playerCount}</td>
+          <td>${g.trueAssetValue !== null ? '$' + g.trueAssetValue : '—'}</td>
+          <td>${new Date(g.startedAt).toLocaleString()}</td>
+          <td>${g.finishedAt ? new Date(g.finishedAt).toLocaleString() : '—'}</td>
+          <td class="flex gap-8">
+            <button class="btn btn-warn btn-sm" onclick="toggleVoid('${g.gameId}')">${g.status === 'VOID' ? 'Unvoid' : 'Void'}</button>
+            <button class="btn btn-danger btn-sm" onclick="deleteGame('${g.gameId}')">Delete</button>
+          </td>
+        </tr>
+      `).join('');
+    } catch (err) { console.error(err); }
+  }
+
+  async function openGameDetail(gameId) {
+    document.getElementById('modalContent').innerHTML = 'Loading...';
+    document.getElementById('gameModal').classList.add('show');
+    try {
+      const data = await adminFetch(`/api/admin/games/${gameId}`);
+      const g = data.game;
+      document.getElementById('modalContent').innerHTML = `
+        <h3 style="margin-bottom:12px;">Game ${g.roomCode}</h3>
+        <p class="text-muted">Status: ${g.status} · True Value: ${g.trueAssetValue !== null ? '$' + g.trueAssetValue : '—'}</p>
+        <table style="margin-top:16px;">
+          <thead><tr><th>Player</th><th>Seat</th><th>Cash</th><th>Assets</th><th>Net PnL</th><th>Rounds</th></tr></thead>
+          <tbody>
+            ${data.players.map(p => `
+              <tr>
+                <td>${escapeHtml(p.name)}${p.isBot ? ' (bot)' : ''}</td>
+                <td>${p.seat}</td>
+                <td>$${p.cash}</td>
+                <td>${p.assets}</td>
+                <td class="${p.netPnl >= 0 ? 'pnl-positive' : 'pnl-negative'}">${p.netPnl}</td>
+                <td>${p.roundsPlayed}</td>
+              </tr>
+            `).join('')}
+          </tbody>
+        </table>
+        <h4 style="margin-top:20px; margin-bottom:8px;">Round Breakdown</h4>
+        <table>
+          <thead><tr><th>Round</th><th>Player</th><th>Cash</th><th>Assets</th><th>Round PnL</th><th>Trades</th></tr></thead>
+          <tbody>
+            ${data.roundBreakdown.map(r => `
+              <tr>
+                <td>${r.round}</td>
+                <td>${escapeHtml(r.playerName)}</td>
+                <td>$${r.cashAfter}</td>
+                <td>${r.assetsAfter}</td>
+                <td class="${r.roundPnl >= 0 ? 'pnl-positive' : 'pnl-negative'}">${r.roundPnl}</td>
+                <td>${r.tradesInRound}</td>
+              </tr>
+            `).join('')}
+          </tbody>
+        </table>
+        <button class="btn btn-primary btn-sm" style="margin-top:16px;" onclick="exportFile('/api/admin/export/games/${g.gameId}')">Export This Game CSV</button>
+      `;
+    } catch (err) {
+      document.getElementById('modalContent').innerHTML = `<p class="error-msg">${escapeHtml(err.message)}</p>`;
+    }
+  }
+
+  function closeModal() {
+    document.getElementById('gameModal').classList.remove('show');
+  }
+
+  async function toggleVoid(gameId) {
+    if (!confirm('Toggle void status for this game? This will adjust player PnL totals.')) return;
+    try {
+      await adminFetch(`/api/admin/games/${gameId}/void`, { method: 'POST' });
+      loadSessions();
+      loadLeaderboard();
+    } catch (err) { alert(err.message); }
+  }
+
+  async function deleteGame(gameId) {
+    if (!confirm('Permanently delete this game? This cannot be undone.')) return;
+    try {
+      await adminFetch(`/api/admin/games/${gameId}`, { method: 'DELETE' });
+      loadSessions();
+    } catch (err) { alert(err.message); }
+  }
+
+  // ─── Participants ───────────────────────────────────────────
+  let participantsData = [];
+  async function loadParticipants() {
+    try {
+      const data = await adminFetch('/api/admin/participants');
+      participantsData = data.participants;
+      renderParticipants(participantsData);
+    } catch (err) { console.error(err); }
+  }
+
+  function renderParticipants(rows) {
+    const body = document.getElementById('participantsBody');
+    if (rows.length === 0) {
+      body.innerHTML = '<tr><td colspan="6" style="text-align:center; padding:24px;">No participants yet</td></tr>';
+      return;
+    }
+    body.innerHTML = rows.map(p => `
+      <tr>
+        <td>${escapeHtml(p.name)}</td>
+        <td>${escapeHtml(p.email)}</td>
+        <td>${p.gamesPlayed}</td>
+        <td class="${p.totalPnl >= 0 ? 'pnl-positive' : 'pnl-negative'}">${p.totalPnl}</td>
+        <td>${new Date(p.joinedAt).toLocaleDateString()}</td>
+        <td class="flex gap-8">
+          <button class="btn btn-ghost btn-sm" onclick="resetPassword('${p.id}')">Reset Pwd</button>
+          <button class="btn btn-danger btn-sm" onclick="deleteParticipant('${p.id}')">Delete</button>
+        </td>
+      </tr>
+    `).join('');
+  }
+
+  document.getElementById('participantSearch').addEventListener('input', (e) => {
+    const q = e.target.value.toLowerCase();
+    renderParticipants(participantsData.filter(p => p.name.toLowerCase().includes(q) || p.email.toLowerCase().includes(q)));
+  });
+
+  async function resetPassword(userId) {
+    const newPassword = prompt('Enter new password (min 6 characters):');
+    if (!newPassword) return;
+    try {
+      await adminFetch(`/api/admin/participants/${userId}/reset-password`, {
+        method: 'POST',
+        body: JSON.stringify({ newPassword }),
+      });
+      alert('Password reset successfully');
+    } catch (err) { alert(err.message); }
+  }
+
+  async function deleteParticipant(userId) {
+    if (!confirm('Permanently delete this participant?')) return;
+    try {
+      await adminFetch(`/api/admin/participants/${userId}`, { method: 'DELETE' });
+      loadParticipants();
+    } catch (err) { alert(err.message); }
+  }
+
+  // ─── Live monitor ────────────────────────────────────────────
+  async function loadLive() {
+    try {
+      const data = await adminFetch('/api/admin/live');
+      const body = document.getElementById('liveGamesBody');
+      if (data.games.length === 0) {
+        body.innerHTML = '<tr><td colspan="4" style="text-align:center; padding:24px;">No active games</td></tr>';
+        return;
+      }
+      body.innerHTML = data.games.map(g => `
+        <tr><td>${g.roomCode}</td><td>${g.phase}</td><td>${g.playerCount}</td><td>${g.round}</td></tr>
+      `).join('');
+    } catch (err) { console.error(err); }
+  }
+
+  // ─── Init ───────────────────────────────────────────────────
+  loadLiveStats();
+  loadLeaderboard();
+  setInterval(loadLiveStats, 8000);
+</script>
+
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MarketSmith Admin — Login</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/admin/css/admin.css">
+</head>
+<body>
+
+<div class="login-wrap">
+  <div class="card login-card">
+    <div class="admin-label">ADMIN PANEL</div>
+    <div class="login-title">MARKETSMITH</div>
+    <form id="adminLoginForm">
+      <input type="password" id="adminPassword" placeholder="Admin password" required>
+      <button type="submit" class="btn btn-primary" style="width:100%; margin-top:14px; padding:13px;">Login</button>
+      <div class="error-msg" id="adminError" style="display:none;"></div>
+    </form>
+  </div>
+</div>
+
+<script>
+  if (localStorage.getItem('ms_admin_token')) {
+    window.location.href = '/admin/dashboard';
+  }
+
+  document.getElementById('adminLoginForm').addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const password = document.getElementById('adminPassword').value;
+    const errorMsg = document.getElementById('adminError');
+    errorMsg.style.display = 'none';
+
+    try {
+      const res = await fetch('/api/admin/login', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ password }),
+      });
+      const data = await res.json();
+      if (!res.ok) throw new Error(data.error || 'Login failed');
+
+      localStorage.setItem('ms_admin_token', data.token);
+      window.location.href = '/admin/dashboard';
+    } catch (err) {
+      errorMsg.textContent = err.message;
+      errorMsg.style.display = 'block';
+    }
+  });
+</script>
+
+</body>
+</html>

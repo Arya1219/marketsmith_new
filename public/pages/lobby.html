@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<title>MarketSmith — Lobby</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/css/style.css">
+<style>
+  .lobby-content {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 24px 16px 60px;
+  }
+
+  .panel { padding: 0; overflow: hidden; margin-top: 16px; }
+  .panel-body { padding: 20px; }
+
+  .enter-arena-wrap { text-align: center; margin-top: 24px; }
+  .enter-arena-btn {
+    font-size: 16px;
+    padding: 16px 40px;
+    border-radius: var(--radius-md);
+  }
+
+  .htp-section { margin-bottom: 22px; }
+  .htp-section h3 {
+    font-size: 14px;
+    color: var(--gold-400);
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    margin-bottom: 8px;
+  }
+  .htp-section ul { margin: 0; padding-left: 18px; color: var(--ink-300); font-size: 14px; line-height: 1.7; }
+  .htp-section li { margin-bottom: 2px; }
+
+  .profile-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    margin-bottom: 20px;
+  }
+  .profile-stat {
+    background: var(--navy-800);
+    border-radius: var(--radius-md);
+    padding: 16px;
+    text-align: center;
+  }
+  .profile-stat .value { font-family: var(--font-mono); font-size: 22px; font-weight: 600; color: var(--gold-400); }
+  .profile-stat .label { font-size: 11px; color: var(--ink-500); margin-top: 4px; text-transform: uppercase; letter-spacing: 0.03em; }
+
+  .loading-row { text-align: center; padding: 40px; color: var(--ink-500); }
+
+  @media (max-width: 600px) {
+    .profile-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<header class="app-header">
+  <div class="app-header__logo">QuantX</div>
+  <div class="app-header__brand">
+    <div class="app-header__title">MARKETSMITH</div>
+    <div class="app-header__subtitle">QuantX Week 2 · IIT BHU Quant Club</div>
+  </div>
+  <button class="btn btn-ghost" onclick="logout()" style="padding:8px 16px; font-size:13px;">Logout</button>
+</header>
+
+<div class="lobby-content">
+  <div class="tabs">
+    <button class="tab active" data-tab="leaderboard">Leaderboard</button>
+    <button class="tab" data-tab="howto">How to Play</button>
+    <button class="tab" data-tab="profile">Profile</button>
+  </div>
+
+  <!-- LEADERBOARD TAB -->
+  <div class="card panel" id="tab-leaderboard">
+    <div class="panel-body">
+      <table>
+        <thead>
+          <tr><th>Rank</th><th>Name</th><th>Games</th><th>Total PnL</th></tr>
+        </thead>
+        <tbody id="leaderboardBody">
+          <tr><td colspan="4" class="loading-row"><div class="spinner" style="margin:0 auto;"></div></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="enter-arena-wrap" id="enterArenaWrap">
+    <button class="btn btn-primary enter-arena-btn" id="enterArenaBtn">Enter Trading Arena</button>
+    <div class="error-msg" id="matchmakingError" style="display:none; text-align:center;"></div>
+  </div>
+
+  <!-- HOW TO PLAY TAB -->
+  <div class="card panel" id="tab-howto" style="display:none;">
+    <div class="panel-body">
+
+      <div class="htp-section">
+        <h3>Interface</h3>
+        <ul>
+          <li>All registered players are divided into groups of 8.</li>
+          <li>6 real players + 2 bots share one trading table.</li>
+          <li>Everyone can see the current question, holdings, and cash of all players at the table.</li>
+        </ul>
+      </div>
+
+      <div class="htp-section">
+        <h3>Game Framework</h3>
+        <ul>
+          <li>Six digits (1–9) are generated at the start of the game and stay hidden through all 6 rounds.</li>
+          <li>The true asset value is the sum of all six digits, revealed only at the end.</li>
+          <li>PnL accumulates across rounds — it is never reset to zero mid-game.</li>
+        </ul>
+      </div>
+
+      <div class="htp-section">
+        <h3>Question Phase</h3>
+        <ul>
+          <li>One question appears at the start of every round.</li>
+          <li>The correct answer is the hidden digit for that round.</li>
+          <li>Keep your answer to yourself — that's your edge.</li>
+        </ul>
+      </div>
+
+      <div class="htp-section">
+        <h3>Assets &amp; Ownership</h3>
+        <ul>
+          <li>The value of one asset equals the sum of all six digits.</li>
+          <li>Each player starts with 2 assets.</li>
+          <li>One bonus asset is given after round 3.</li>
+          <li>There is no limit on maximum holdings.</li>
+        </ul>
+      </div>
+
+      <div class="htp-section">
+        <h3>Trading Rules</h3>
+        <ul>
+          <li>Quote a bid and/or ask price after working out the question.</li>
+          <li>Each round has a 45 second trading window.</li>
+          <li>Maximum price is 100.</li>
+          <li>One buy order AND one sell order allowed per round, per player.</li>
+          <li>Each order covers exactly one asset.</li>
+        </ul>
+      </div>
+
+      <div class="htp-section">
+        <h3>Trading Logic</h3>
+        <ul>
+          <li>If the highest bid is below the lowest ask, no trade executes.</li>
+          <li>If the highest bid meets or beats the lowest ask, a trade executes.</li>
+          <li>The clearing price is the midpoint of the best bid and best ask.</li>
+          <li>Orders are matched on price-time priority.</li>
+          <li>No self-trading is allowed.</li>
+          <li>The sum of all players' PnL is always zero.</li>
+        </ul>
+      </div>
+
+      <div class="htp-section">
+        <h3>Bots</h3>
+        <ul>
+          <li>2 bots join every table automatically.</li>
+          <li>Bots quote around the true value with some randomness, mainly to keep the market liquid.</li>
+          <li>Bot PnL is never counted toward the leaderboard.</li>
+        </ul>
+      </div>
+
+      <div class="htp-section">
+        <h3>End of Round</h3>
+        <ul>
+          <li>The true asset value is revealed at game end.</li>
+          <li>Final wealth = cash + (asset count − 3) × true value.</li>
+          <li>Players are ranked by total PnL across all games played.</li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- PROFILE TAB -->
+  <div class="card panel" id="tab-profile" style="display:none;">
+    <div class="panel-body">
+      <div class="profile-grid" id="profileStats">
+        <div class="profile-stat"><div class="value">—</div><div class="label">Games Played</div></div>
+        <div class="profile-stat"><div class="value">—</div><div class="label">Total PnL</div></div>
+        <div class="profile-stat"><div class="value">—</div><div class="label">Best Game PnL</div></div>
+      </div>
+      <table>
+        <thead><tr><th>Game</th><th>Date</th><th>Rounds</th><th>PnL</th></tr></thead>
+        <tbody id="historyBody">
+          <tr><td colspan="4" class="loading-row"><div class="spinner" style="margin:0 auto;"></div></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+</div>
+
+<script src="/js/api.js"></script>
+<script>
+  requireAuth();
+
+  let leaderboardInterval = null;
+
+  // ─── Tab switching ──────────────────────────────────────────
+  document.querySelectorAll('.tab').forEach(tab => {
+    tab.addEventListener('click', () => {
+      document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+      tab.classList.add('active');
+      ['leaderboard', 'howto', 'profile'].forEach(name => {
+        document.getElementById('tab-' + name).style.display = 'none';
+      });
+      document.getElementById('tab-' + tab.dataset.tab).style.display = 'block';
+      document.getElementById('enterArenaWrap').style.display = tab.dataset.tab === 'leaderboard' ? 'block' : 'none';
+
+      if (tab.dataset.tab === 'profile') loadProfile();
+    });
+  });
+
+  // ─── Leaderboard ────────────────────────────────────────────
+  async function loadLeaderboard() {
+    try {
+      const data = await API.get('/leaderboard');
+      const body = document.getElementById('leaderboardBody');
+      if (data.leaderboard.length === 0) {
+        body.innerHTML = '<tr><td colspan="4" class="loading-row">No games played yet</td></tr>';
+        return;
+      }
+      body.innerHTML = data.leaderboard.map(row => `
+        <tr>
+          <td>${row.rank}</td>
+          <td>${escapeHtml(row.name)}</td>
+          <td>${row.gamesPlayed}</td>
+          <td class="${row.totalPnl >= 0 ? 'pnl-positive' : 'pnl-negative'}">${row.totalPnl >= 0 ? '+' : ''}${row.totalPnl}</td>
+        </tr>
+      `).join('');
+    } catch (err) {
+      console.error('Leaderboard load failed:', err);
+    }
+  }
+
+  function escapeHtml(str) {
+    const div = document.createElement('div');
+    div.textContent = str;
+    return div.innerHTML;
+  }
+
+  loadLeaderboard();
+  leaderboardInterval = setInterval(loadLeaderboard, 10000);
+
+  // ─── Profile ────────────────────────────────────────────────
+  async function loadProfile() {
+    try {
+      const data = await API.get('/profile');
+      document.getElementById('profileStats').innerHTML = `
+        <div class="profile-stat"><div class="value">${data.gamesPlayed}</div><div class="label">Games Played</div></div>
+        <div class="profile-stat"><div class="value ${data.totalPnl >= 0 ? 'pnl-positive' : 'pnl-negative'}">${data.totalPnl >= 0 ? '+' : ''}${data.totalPnl}</div><div class="label">Total PnL</div></div>
+        <div class="profile-stat"><div class="value ${data.bestGamePnl >= 0 ? 'pnl-positive' : 'pnl-negative'}">${data.bestGamePnl >= 0 ? '+' : ''}${data.bestGamePnl}</div><div class="label">Best Game PnL</div></div>
+      `;
+
+      const body = document.getElementById('historyBody');
+      if (data.history.length === 0) {
+        body.innerHTML = '<tr><td colspan="4" class="loading-row">No games played yet</td></tr>';
+        return;
+      }
+      body.innerHTML = data.history.map(g => `
+        <tr>
+          <td>${g.roomCode}${g.void ? ' <span class="text-muted">(void)</span>' : ''}</td>
+          <td>${new Date(g.date).toLocaleDateString()}</td>
+          <td>${g.rounds}/6</td>
+          <td class="${g.pnl >= 0 ? 'pnl-positive' : 'pnl-negative'}">${g.pnl >= 0 ? '+' : ''}${g.pnl}</td>
+        </tr>
+      `).join('');
+    } catch (err) {
+      console.error('Profile load failed:', err);
+    }
+  }
+
+  // ─── Matchmaking ────────────────────────────────────────────
+  const enterBtn = document.getElementById('enterArenaBtn');
+  const mmError = document.getElementById('matchmakingError');
+
+  enterBtn.addEventListener('click', async () => {
+    enterBtn.disabled = true;
+    enterBtn.textContent = 'Joining...';
+    mmError.style.display = 'none';
+
+    try {
+      const data = await API.post('/matchmaking', {});
+      if (data.isActive) {
+        window.location.href = `/game/${data.gameId}`;
+      } else {
+        window.location.href = `/waiting/${data.gameId}`;
+      }
+    } catch (err) {
+      mmError.textContent = err.message || 'Could not join. Please try again.';
+      mmError.style.display = 'block';
+      enterBtn.disabled = false;
+      enterBtn.textContent = 'Enter Trading Arena';
+    }
+  });
+</script>
+
+</body>
+</html>

@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<title>MarketSmith — Trading</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/css/style.css">
+<style>
+  .game-layout {
+    display: grid;
+    grid-template-columns: 1fr 360px;
+    gap: 16px;
+    padding: 16px;
+    max-width: 1400px;
+    margin: 0 auto;
+  }
+
+  .game-top-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 14px;
+  }
+
+  .round-indicator {
+    font-family: var(--font-display);
+    font-size: 18px;
+    color: var(--ink-300);
+  }
+  .round-indicator strong { color: var(--gold-400); }
+
+  .timer-box {
+    background: var(--navy-800);
+    border: 1px solid var(--gold-500);
+    border-radius: var(--radius-sm);
+    padding: 8px 16px;
+    font-family: var(--font-mono);
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--gold-400);
+  }
+  .timer-box.urgent { border-color: var(--red-500); color: var(--red-500); }
+
+  /* ─── Poker table ──────────────────────────────────────── */
+  .table-wrap {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16/10;
+    max-height: 560px;
+  }
+
+  .poker-table {
+    position: absolute;
+    inset: 12%;
+    background: radial-gradient(ellipse at center, var(--navy-800), var(--navy-900));
+    border: 3px solid var(--gold-500);
+    border-radius: 50%;
+    box-shadow: inset 0 0 60px rgba(0,0,0,0.5), var(--shadow-card);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    padding: 24px;
+  }
+
+  .table-round-label {
+    font-size: 12px;
+    color: var(--gold-400);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    margin-bottom: 10px;
+  }
+
+  .table-question {
+    font-family: var(--font-display);
+    font-size: clamp(16px, 2.4vw, 26px);
+    color: var(--ink-100);
+    line-height: 1.3;
+    max-width: 420px;
+  }
+
+  .seat {
+    position: absolute;
+    width: 120px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .seat-avatar {
+    width: 46px;
+    height: 46px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    font-size: 16px;
+    color: var(--navy-950);
+    background: var(--ink-300);
+    margin-bottom: 6px;
+    border: 2px solid var(--navy-700);
+  }
+  .seat-avatar.human { background: linear-gradient(135deg, #6f9ce8, #4a76c9); color: white; }
+  .seat-avatar.bot { background: var(--navy-600); color: var(--ink-300); }
+  .seat-avatar.disconnected { opacity: 0.4; }
+  .seat-avatar.me { box-shadow: 0 0 0 3px var(--gold-500); }
+
+  .seat-name { font-size: 13px; font-weight: 600; color: var(--ink-100); }
+  .seat-stats { font-family: var(--font-mono); font-size: 11px; color: var(--ink-500); }
+
+  /* Seat positions for up to 8 (6 humans + 2 bots), arranged around oval */
+  .seat-0 { top: -6%; left: 50%; transform: translateX(-50%); }
+  .seat-1 { top: 14%; left: 4%; }
+  .seat-2 { top: 56%; left: -6%; }
+  .seat-3 { top: 90%; left: 22%; }
+  .seat-4 { top: 90%; left: 60%; }
+  .seat-5 { top: 56%; left: 90%; }
+  .seat-6 { top: 14%; left: 80%; }
+  .seat-7 { top: -6%; left: 78%; transform: translateX(-50%); }
+
+  /* ─── Right panel ──────────────────────────────────────── */
+  .trade-panel { display: flex; flex-direction: column; gap: 14px; }
+
+  .panel-section { padding: 16px; }
+  .panel-title {
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--ink-500);
+    margin-bottom: 12px;
+  }
+
+  .price-input-row { margin-bottom: 12px; }
+  .order-buttons { display: flex; gap: 10px; }
+  .order-buttons .btn { flex: 1; padding: 13px; font-size: 14px; }
+
+  .working-orders-list { display: flex; flex-direction: column; gap: 6px; font-size: 13px; }
+  .working-order-row {
+    display: flex;
+    justify-content: space-between;
+    background: var(--navy-800);
+    padding: 8px 12px;
+    border-radius: var(--radius-sm);
+  }
+  .order-tag-buy { color: var(--green-500); font-weight: 600; }
+  .order-tag-sell { color: var(--red-500); font-weight: 600; }
+
+  .trade-history-scroll { max-height: 220px; overflow-y: auto; }
+
+  .empty-state { color: var(--ink-500); font-size: 13px; text-align: center; padding: 16px 0; }
+
+  /* ─── Round end overlay ────────────────────────────────── */
+  .overlay {
+    position: fixed; inset: 0;
+    background: rgba(10,14,26,0.92);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 100;
+    padding: 24px;
+  }
+  .overlay.show { display: flex; }
+  .overlay-card { max-width: 460px; width: 100%; padding: 32px; text-align: center; }
+  .overlay-title { font-family: var(--font-display); font-size: 22px; color: var(--gold-400); margin-bottom: 18px; }
+  .overlay-trades { text-align: left; max-height: 260px; overflow-y: auto; margin-bottom: 20px; font-size: 14px; line-height: 1.8; color: var(--ink-300); }
+  .overlay-countdown { font-size: 13px; color: var(--ink-500); }
+
+  @media (max-width: 980px) {
+    .game-layout { grid-template-columns: 1fr; }
+    .table-wrap { aspect-ratio: 4/3; max-height: 420px; }
+    .seat { width: 80px; }
+    .seat-avatar { width: 36px; height: 36px; font-size: 13px; }
+    .seat-name { font-size: 11px; }
+    .seat-stats { font-size: 9px; }
+  }
+
+  @media (max-width: 600px) {
+    .game-layout { padding: 10px; gap: 10px; }
+    .round-indicator { font-size: 14px; }
+    .timer-box { font-size: 14px; padding: 6px 12px; }
+    .table-wrap { aspect-ratio: 1/1; max-height: 380px; }
+  }
+</style>
+</head>
+<body>
+
+<header class="app-header">
+  <div class="app-header__logo">QuantX</div>
+  <div class="app-header__brand">
+    <div class="app-header__title">MARKETSMITH</div>
+  </div>
+  <div style="width:50px;"></div>
+</header>
+
+<div class="game-layout">
+  <div>
+    <div class="game-top-bar">
+      <div class="round-indicator">Round <strong id="roundNum">1</strong> / 6</div>
+      <div class="timer-box" id="timerBox">⏱ 45s</div>
+    </div>
+
+    <div class="table-wrap">
+      <div class="poker-table">
+        <div class="table-round-label">Round <span id="tableRoundNum">1</span></div>
+        <div class="table-question" id="questionText">Loading question...</div>
+      </div>
+      <div id="seatsContainer"></div>
+    </div>
+  </div>
+
+  <div class="trade-panel">
+    <div class="card panel-section">
+      <div class="panel-title">Place Order</div>
+      <div class="price-input-row">
+        <input type="number" id="priceInput" placeholder="Enter price (max 100)" min="1" max="100">
+      </div>
+      <div class="order-buttons">
+        <button class="btn btn-buy" id="buyBtn">BUY</button>
+        <button class="btn btn-sell" id="sellBtn">SELL</button>
+      </div>
+      <div class="error-msg" id="orderError" style="display:none;"></div>
+      <div class="success-msg" id="orderSuccess" style="display:none;"></div>
+    </div>
+
+    <div class="card panel-section">
+      <div class="panel-title">Working Orders</div>
+      <div class="working-orders-list" id="workingOrders">
+        <div class="empty-state">No orders placed this round</div>
+      </div>
+    </div>
+
+    <div class="card panel-section">
+      <div class="panel-title">My Trade History</div>
+      <div class="trade-history-scroll" id="tradeHistory">
+        <div class="empty-state">No trades yet</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Round end overlay -->
+<div class="overlay" id="roundOverlay">
+  <div class="card overlay-card">
+    <div class="overlay-title" id="overlayTitle">ROUND 1 TRADES</div>
+    <div class="overlay-trades" id="overlayTrades"></div>
+    <div class="overlay-countdown" id="overlayCountdown">Next round starting in 10s...</div>
+  </div>
+</div>
+
+<script src="/js/api.js"></script>
+<script src="https://cdn.socket.io/4.6.2/socket.io.min.js"></script>
+<script>
+  requireAuth();
+  const user = API.getUser();
+  const gameId = window.location.pathname.split('/')[2];
+
+  let myOrdersThisRound = []; // [{type, price}]
+  let myTradeHistory = [];
+  let players = [];
+  let timerInterval = null;
+  let timeLeft = 45;
+
+  const roundNum = document.getElementById('roundNum');
+  const tableRoundNum = document.getElementById('tableRoundNum');
+  const timerBox = document.getElementById('timerBox');
+  const questionText = document.getElementById('questionText');
+  const seatsContainer = document.getElementById('seatsContainer');
+  const priceInput = document.getElementById('priceInput');
+  const buyBtn = document.getElementById('buyBtn');
+  const sellBtn = document.getElementById('sellBtn');
+  const orderError = document.getElementById('orderError');
+  const orderSuccess = document.getElementById('orderSuccess');
+  const workingOrders = document.getElementById('workingOrders');
+  const tradeHistory = document.getElementById('tradeHistory');
+  const roundOverlay = document.getElementById('roundOverlay');
+  const overlayTitle = document.getElementById('overlayTitle');
+  const overlayTrades = document.getElementById('overlayTrades');
+  const overlayCountdown = document.getElementById('overlayCountdown');
+
+  function escapeHtml(str) {
+    const div = document.createElement('div');
+    div.textContent = str;
+    return div.innerHTML;
+  }
+
+  function renderSeats() {
+    seatsContainer.innerHTML = players.map((p, i) => {
+      const isMe = p.name === user.firstName;
+      const avatarClass = p.isBot ? 'bot' : 'human';
+      const initial = (p.name || '?').charAt(0).toUpperCase();
+      return `
+        <div class="seat seat-${i}">
+          <div class="seat-avatar ${avatarClass} ${!p.isConnected ? 'disconnected' : ''} ${isMe ? 'me' : ''}">${initial}</div>
+          <div class="seat-name">${escapeHtml(p.name)}${isMe ? ' (You)' : ''}</div>
+          <div class="seat-stats">$${p.cash} · ${p.assets} assets</div>
+        </div>
+      `;
+    }).join('');
+  }
+
+  function startTimer(seconds) {
+    clearInterval(timerInterval);
+    timeLeft = seconds;
+    updateTimerDisplay();
+    timerInterval = setInterval(() => {
+      timeLeft--;
+      updateTimerDisplay();
+      if (timeLeft <= 0) clearInterval(timerInterval);
+    }, 1000);
+  }
+
+  function updateTimerDisplay() {
+    timerBox.textContent = `⏱ ${Math.max(0, timeLeft)}s`;
+    timerBox.classList.toggle('urgent', timeLeft <= 10);
+  }
+
+  function renderWorkingOrders() {
+    if (myOrdersThisRound.length === 0) {
+      workingOrders.innerHTML = '<div class="empty-state">No orders placed this round</div>';
+      return;
+    }
+    workingOrders.innerHTML = myOrdersThisRound.map(o => `
+      <div class="working-order-row">
+        <span class="${o.type === 'BID' ? 'order-tag-buy' : 'order-tag-sell'}">${o.type === 'BID' ? 'BUY' : 'SELL'}</span>
+        <span>$${o.price}</span>
+      </div>
+    `).join('');
+  }
+
+  function renderTradeHistory() {
+    if (myTradeHistory.length === 0) {
+      tradeHistory.innerHTML = '<div class="empty-state">No trades yet</div>';
+      return;
+    }
+    tradeHistory.innerHTML = `
+      <table style="font-size:12px;">
+        <thead><tr><th>Rnd</th><th>Buyer</th><th>Seller</th><th>Price</th></tr></thead>
+        <tbody>
+          ${myTradeHistory.map(t => `
+            <tr>
+              <td>${t.round}</td>
+              <td>${escapeHtml(t.buyer)}</td>
+              <td>${escapeHtml(t.seller)}</td>
+              <td>$${t.price}</td>
+            </tr>
+          `).join('')}
+        </tbody>
+      </table>
+    `;
+  }
+
+  function setTradePanelEnabled(enabled) {
+    priceInput.disabled = !enabled;
+    buyBtn.disabled = !enabled;
+    sellBtn.disabled = !enabled;
+  }
+
+  // ─── Load initial state ───────────────────────────────────
+  async function loadGameState() {
+    try {
+      const data = await API.get(`/game/${gameId}`);
+
+      if (data.phase === 'finished') {
+        window.location.href = `/game/${gameId}/results`;
+        return;
+      }
+
+      if (data.players) {
+        players = data.players;
+        renderSeats();
+      }
+
+      if (data.round) {
+        roundNum.textContent = data.round;
+        tableRoundNum.textContent = data.round;
+      }
+
+      if (data.question) {
+        questionText.textContent = data.question;
+      }
+
+      if (data.tradeLog) {
+        myTradeHistory = data.tradeLog.filter(t => t.buyer === user.firstName || t.seller === user.firstName);
+        renderTradeHistory();
+      }
+
+      if (data.phase === 'log') {
+        showRoundOverlay(data.round, data.currentRoundTrades || []);
+      }
+    } catch (err) {
+      console.error('Could not load game state:', err);
+    }
+  }
+
+  loadGameState();
+
+  // ─── Socket connection ─────────────────────────────────────
+  const socket = io({ auth: { token: API.token() } });
+
+  socket.on('connect', () => {
+    socket.emit('join_waiting', { gameId }); // also handles reconnect logic server-side
+  });
+
+  socket.on('round_started', (data) => {
+    roundOverlay.classList.remove('show');
+    myOrdersThisRound = [];
+    renderWorkingOrders();
+    setTradePanelEnabled(true);
+    orderError.style.display = 'none';
+    orderSuccess.style.display = 'none';
+    priceInput.value = '';
+
+    roundNum.textContent = data.round;
+    tableRoundNum.textContent = data.round;
+    questionText.textContent = data.question;
+    players = data.players;
+    renderSeats();
+    startTimer(data.duration);
+  });
+
+  socket.on('round_ended', (data) => {
+    setTradePanelEnabled(false);
+    players = data.players;
+    renderSeats();
+
+    const myTrades = data.trades.filter(t => t.buyer === user.firstName || t.seller === user.firstName);
+    myTradeHistory.push(...myTrades);
+    renderTradeHistory();
+
+    showRoundOverlay(data.round, data.trades, data.nextRoundIn);
+  });
+
+  socket.on('game_over', () => {
+    window.location.href = `/game/${gameId}/results`;
+  });
+
+  socket.on('order_confirmed', (data) => {
+    myOrdersThisRound.push({ type: data.type, price: data.price });
+    renderWorkingOrders();
+    orderSuccess.textContent = data.message;
+    orderSuccess.style.display = 'block';
+    orderError.style.display = 'none';
+    if (data.type === 'BID') buyBtn.disabled = true; else sellBtn.disabled = true;
+  });
+
+  socket.on('order_error', (data) => {
+    orderError.textContent = data.message;
+    orderError.style.display = 'block';
+    orderSuccess.style.display = 'none';
+  });
+
+  socket.on('player_disconnected', (data) => {
+    console.log(`${data.name} (seat ${data.seat}) disconnected`);
+  });
+
+  function showRoundOverlay(round, trades, countdownSeconds) {
+    overlayTitle.textContent = `ROUND ${round} TRADES`;
+    if (!trades || trades.length === 0) {
+      overlayTrades.innerHTML = '<div class="empty-state">No trades this round</div>';
+    } else {
+      overlayTrades.innerHTML = trades.map(t =>
+        `<div>${escapeHtml(t.buyer)} bought from ${escapeHtml(t.seller)} @ $${t.price}</div>`
+      ).join('');
+    }
+    roundOverlay.classList.add('show');
+
+    if (countdownSeconds) {
+      let c = countdownSeconds;
+      overlayCountdown.textContent = `Next round starting in ${c}s...`;
+      const cTimer = setInterval(() => {
+        c--;
+        if (c <= 0) { clearInterval(cTimer); return; }
+        overlayCountdown.textContent = `Next round starting in ${c}s...`;
+      }, 1000);
+    }
+  }
+
+  // ─── Order placement ────────────────────────────────────────
+  function submitOrder(type) {
+    const price = parseInt(priceInput.value, 10);
+    orderError.style.display = 'none';
+    orderSuccess.style.display = 'none';
+
+    if (isNaN(price) || price < 1 || price > 100) {
+      orderError.textContent = price > 100 ? 'Maximum price is 100' : 'Enter a valid price between 1 and 100';
+      orderError.style.display = 'block';
+      return;
+    }
+
+    socket.emit('place_order', { gameId, type, price });
+  }
+
+  buyBtn.addEventListener('click', () => submitOrder('BID'));
+  sellBtn.addEventListener('click', () => submitOrder('ASK'));
+</script>
+
+</body>
+</html>
