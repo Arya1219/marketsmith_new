@@ -1,50 +1,66 @@
 // scripts/create-users.js
-// One-time helper script to bulk-create participant accounts.
-// Password format: first 4 letters of name (lowercase) + last 4 digits of phone
-// Usage: node scripts/create-users.js
+// Bulk-creates all participant accounts from participants.json,
+// plus the admin account, using the pre-assigned credentials.
 //
-// Edit the `participants` array below, then run this script once.
+// Password format already baked into participants.json:
+// first 4 letters of name (lowercase) + last 4 digits of phone
+//
+// Usage: node scripts/create-users.js
 
 require('dotenv').config();
+const fs = require('fs');
+const path = require('path');
 const bcrypt = require('bcryptjs');
 const supabase = require('../config/supabase');
 
-const participants = [
-  // { name: 'Arjun Sharma', email: 'arjun@example.com', phone: '9876543210' },
-  // Add all participants here before running
-];
-
-function generatePassword(name, phone) {
-  const namePart = name.replace(/\s/g, '').toLowerCase().substring(0, 4);
-  const phonePart = phone.slice(-4);
-  return namePart + phonePart;
-}
-
 async function main() {
-  if (participants.length === 0) {
-    console.log('No participants defined. Edit scripts/create-users.js and add participants first.');
+  const filePath = path.join(__dirname, 'participants.json');
+  if (!fs.existsSync(filePath)) {
+    console.log('participants.json not found in scripts/ folder.');
     return;
   }
 
+  const participants = JSON.parse(fs.readFileSync(filePath, 'utf8'));
+  console.log(`Found ${participants.length} participants to create...\n`);
+
+  let created = 0;
+  let skipped = 0;
+  let failed = 0;
+
   for (const p of participants) {
-    const password = generatePassword(p.name, p.phone);
-    const hash = await bcrypt.hash(password, 10);
-    const firstName = p.name.trim().split(' ')[0];
+    const email = p.email.toLowerCase().trim();
+
+    // Skip if user already exists (safe to re-run this script)
+    const { data: existing } = await supabase
+      .from('users')
+      .select('id')
+      .eq('email', email)
+      .maybeSingle();
+
+    if (existing) {
+      console.log(`SKIP (already exists): ${email}`);
+      skipped++;
+      continue;
+    }
+
+    const hash = await bcrypt.hash(p.password, 10);
 
     const { error } = await supabase.from('users').insert({
-      email: p.email.toLowerCase().trim(),
+      email,
       password_hash: hash,
-      first_name: firstName,
+      first_name: p.name,
     });
 
     if (error) {
-      console.error(`FAILED: ${p.email} — ${error.message}`);
+      console.error(`FAILED: ${email} — ${error.message}`);
+      failed++;
     } else {
-      console.log(`OK: ${p.email} — password: ${password}`);
+      console.log(`OK: ${email} (${p.name})`);
+      created++;
     }
   }
 
-  console.log('\nDone. Save the printed passwords and share with participants.');
+  console.log(`\nDone. Created: ${created}, Skipped: ${skipped}, Failed: ${failed}`);
 }
 
 main();
