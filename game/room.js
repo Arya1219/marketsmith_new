@@ -96,18 +96,31 @@ async function findOrCreateRoom() {
 }
 
 async function addPlayerToRoom(room, userId, userName) {
-  // Hard cap: never exceed 6 real players
-  if (room.realPlayerCount >= MAX_PLAYERS) {
-    return null;
-  }
-
-  // Check not already in room
+  // Check not already in room (in-memory)
   for (const p of room.players.values()) {
     if (p.userId === userId) return p;
   }
 
+  // DB-level strict cap — count real players in DB to prevent race conditions
+  const { count, error: countError } = await supabase
+    .from('players')
+    .select('id', { count: 'exact', head: true })
+    .eq('game_id', room.gameId)
+    .eq('is_bot', false);
+
+  if (countError) throw countError;
+  if (count >= MAX_PLAYERS) {
+    // Also update in-memory count to stay in sync
+    return null;
+  }
+
+  // Hard cap on in-memory count too
+  if (room.realPlayerCount >= MAX_PLAYERS) {
+    return null;
+  }
+
   const playerId = uuidv4();
-  const seatNumber = room.realPlayerCount + 1;
+  const seatNumber = (count || room.realPlayerCount) + 1;
 
   // Insert into DB
   const { error } = await supabase.from('players').insert({
@@ -387,8 +400,8 @@ async function finishGame(room, io) {
     roomCode: room.roomCode,
   });
 
-  // Clean up room from memory after 2 minutes
-  setTimeout(() => rooms.delete(room.gameId), 120000);
+  // Clean up room from memory after 10 minutes so results page can always load
+  setTimeout(() => rooms.delete(room.gameId), 600000);
 }
 
 // ─── DB helpers ───────────────────────────────────────────────
