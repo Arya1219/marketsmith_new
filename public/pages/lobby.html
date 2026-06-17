@@ -17,7 +17,6 @@
   .panel { padding: 0; overflow: hidden; margin-top: 16px; }
   .panel-body { padding: 20px; }
 
-  .enter-arena-wrap { text-align: center; margin-top: 24px; }
   .enter-arena-btn {
     font-size: 16px;
     padding: 16px 40px;
@@ -72,6 +71,7 @@
   <div class="tabs">
     <button class="tab active" data-tab="leaderboard">Leaderboard</button>
     <button class="tab" data-tab="howto">How to Play</button>
+    <button class="tab" data-tab="arena">Trading Arena</button>
     <button class="tab" data-tab="profile">Profile</button>
   </div>
 
@@ -89,9 +89,16 @@
     </div>
   </div>
 
-  <div class="enter-arena-wrap" id="enterArenaWrap">
-    <button class="btn btn-primary enter-arena-btn" id="enterArenaBtn">Enter Trading Arena</button>
-    <div class="error-msg" id="matchmakingError" style="display:none; text-align:center;"></div>
+  <!-- TRADING ARENA TAB -->
+  <div class="card panel" id="tab-arena" style="display:none;">
+    <div class="panel-body" style="text-align:center; padding:48px 24px;">
+      <div style="font-family: var(--font-display); font-size: 22px; color: var(--gold-400); margin-bottom: 10px;">Ready to Trade?</div>
+      <div class="text-muted" style="font-size: 14px; margin-bottom: 28px; max-width: 420px; margin-left:auto; margin-right:auto;">
+        You'll be matched into a table of 6 players. The session starts automatically once the table fills up.
+      </div>
+      <button class="btn btn-primary enter-arena-btn" id="enterArenaBtn">Enter Trading Arena</button>
+      <div class="error-msg" id="matchmakingError" style="display:none; text-align:center; margin-top:12px;"></div>
+    </div>
   </div>
 
   <!-- HOW TO PLAY TAB -->
@@ -182,6 +189,10 @@
   <!-- PROFILE TAB -->
   <div class="card panel" id="tab-profile" style="display:none;">
     <div class="panel-body">
+      <div class="profile-identity" id="profileIdentity" style="margin-bottom:18px;">
+        <div style="font-family: var(--font-display); font-size: 20px; color: var(--ink-100);" id="profileName">—</div>
+        <div class="text-muted" style="font-size: 13px;" id="profileEmail">—</div>
+      </div>
       <div class="profile-grid" id="profileStats">
         <div class="profile-stat"><div class="value">—</div><div class="label">Games Played</div></div>
         <div class="profile-stat"><div class="value">—</div><div class="label">Total PnL</div></div>
@@ -209,11 +220,10 @@
     tab.addEventListener('click', () => {
       document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
       tab.classList.add('active');
-      ['leaderboard', 'howto', 'profile'].forEach(name => {
+      ['leaderboard', 'howto', 'arena', 'profile'].forEach(name => {
         document.getElementById('tab-' + name).style.display = 'none';
       });
       document.getElementById('tab-' + tab.dataset.tab).style.display = 'block';
-      document.getElementById('enterArenaWrap').style.display = tab.dataset.tab === 'leaderboard' ? 'block' : 'none';
 
       if (tab.dataset.tab === 'profile') loadProfile();
     });
@@ -254,6 +264,10 @@
   async function loadProfile() {
     try {
       const data = await API.get('/profile');
+
+      document.getElementById('profileName').textContent = data.name;
+      document.getElementById('profileEmail').textContent = data.email;
+
       document.getElementById('profileStats').innerHTML = `
         <div class="profile-stat"><div class="value">${data.gamesPlayed}</div><div class="label">Games Played</div></div>
         <div class="profile-stat"><div class="value ${data.totalPnl >= 0 ? 'pnl-positive' : 'pnl-negative'}">${data.totalPnl >= 0 ? '+' : ''}${data.totalPnl}</div><div class="label">Total PnL</div></div>
