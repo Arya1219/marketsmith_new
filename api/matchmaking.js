@@ -67,6 +67,37 @@ router.get('/game/:gameId', authMiddleware, async (req, res) => {
     const r = room.getRoom(req.params.gameId);
 
     if (r) {
+      // If the game has just finished, the room may still be sitting in
+      // memory (it isn't cleaned up for several minutes). The results
+      // page needs trueValue/hiddenArray/gameId/roomCode and a ranked
+      // player list — without these fields it shows "undefined", which
+      // was the bug. Build the full finished-game payload here too,
+      // identical in shape to the DB fallback branch below.
+      if (r.phase === 'finished') {
+        const trueValue = r.trueValue;
+        const results = room.serializePlayers(r)
+          .filter(p => !p.isBot)
+          .map(p => ({
+            name: p.name,
+            seat: p.seat,
+            cash: p.cash,
+            assets: p.assets,
+            netPnl: p.cash + (p.assets - 3) * trueValue,
+            roundsPlayed: p.roundsPlayed,
+          }))
+          .sort((a, b) => b.netPnl - a.netPnl)
+          .map((p, i) => ({ ...p, rank: i + 1 }));
+
+        return res.json({
+          phase: 'finished',
+          trueValue,
+          hiddenArray: r.hiddenArray,
+          players: results,
+          gameId: r.gameId,
+          roomCode: r.roomCode,
+        });
+      }
+
       return res.json({
         round: r.currentRound,
         totalRounds: 6,
@@ -75,6 +106,9 @@ router.get('/game/:gameId', authMiddleware, async (req, res) => {
         players: room.serializePlayers(r),
         tradeLog: r.tradeLog,
         currentRoundTrades: r.currentRoundTrades,
+        roundStartTime: r.roundStartTime,
+        roundDuration: r.roundDuration,
+        serverTime: Date.now(),
       });
     }
 
