@@ -264,6 +264,7 @@
   let players = [];
   let timerInterval = null;
   let timeLeft = 45;
+  let serverTimeOffset = 0; // serverNow - localNow, used to align all clients to the same clock
 
   const roundNum = document.getElementById('roundNum');
   const tableRoundNum = document.getElementById('tableRoundNum');
@@ -303,15 +304,43 @@
     }).join('');
   }
 
-  function startTimer(seconds) {
+  // Starts (or resumes) the round timer anchored to a fixed server
+  // timestamp rather than just counting down 45 in the browser. This
+  // fixes two things at once:
+  //   1. Round 1 not showing a countdown — previously loadGameState()
+  //      never called startTimer() at all, so the display stayed frozen
+  //      on the hardcoded initial value.
+  //   2. Timers drifting apart between players — every client now
+  //      computes "seconds left" from the same startedAt timestamp
+  //      (adjusted for each client's own clock offset from the server),
+  //      so everyone reaches zero at the same real moment instead of
+  //      each browser running its own independent count.
+  function startTimerFromServerTime(startedAtMs, durationSeconds, serverNowMs) {
     clearInterval(timerInterval);
-    timeLeft = seconds;
-    updateTimerDisplay();
-    timerInterval = setInterval(() => {
-      timeLeft--;
+
+    if (typeof serverNowMs === 'number') {
+      serverTimeOffset = serverNowMs - Date.now();
+    }
+
+    const durationMs = durationSeconds * 1000;
+
+    function tick() {
+      const adjustedNow = Date.now() + serverTimeOffset;
+      const elapsed = adjustedNow - startedAtMs;
+      timeLeft = Math.max(0, Math.ceil((durationMs - elapsed) / 1000));
       updateTimerDisplay();
       if (timeLeft <= 0) clearInterval(timerInterval);
-    }, 1000);
+    }
+
+    tick(); // show correct value immediately, don't wait 1s for first tick
+    timerInterval = setInterval(tick, 1000);
+  }
+
+  // Fallback for places that only have "seconds remaining" with no
+  // server anchor (e.g. the round-end log countdown). Anchors to "now"
+  // on the assumption the event was just received.
+  function startTimer(seconds) {
+    startTimerFromServerTime(Date.now(), seconds, Date.now());
   }
 
   function updateTimerDisplay() {
@@ -392,6 +421,16 @@
       if (data.phase === 'log') {
         showRoundOverlay(data.round, data.currentRoundTrades || []);
       }
+
+      // Start (or resume) the round timer using the server-anchored
+      // start time. This is the fix for round 1 showing no countdown:
+      // a player whose socket connects after round_started already
+      // fired (e.g. the 6th player still mid-redirect from the waiting
+      // room) previously never got the timer started at all. Now the
+      // very first REST call on page load carries the same anchor.
+      if (data.phase === 'play' && data.roundStartTime && data.roundDuration) {
+        startTimerFromServerTime(data.roundStartTime, data.roundDuration / 1000, data.serverTime);
+      }
     } catch (err) {
       console.error('Could not load game state:', err);
     }
@@ -420,7 +459,12 @@
     questionText.textContent = data.question;
     players = data.players;
     renderSeats();
-    startTimer(data.duration);
+
+    if (data.startedAt && data.serverTime) {
+      startTimerFromServerTime(data.startedAt, data.duration, data.serverTime);
+    } else {
+      startTimer(data.duration);
+    }
   });
 
   socket.on('round_ended', (data) => {
