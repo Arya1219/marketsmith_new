@@ -31,6 +31,16 @@ class RoomState {
     this.tradeLog = [];       // all rounds
     this.currentRoundTrades = [];
     this.pnlSaved = false;
+    // Server timestamp (ms) marking when the current round/log phase
+    // started, plus its duration. Sent to clients so every player's
+    // countdown is computed from the same fixed point in time instead
+    // of each browser running its own independent setInterval — this
+    // is what keeps the timer in sync across all players, and is also
+    // what lets a client compute the correct remaining time even if it
+    // missed the original round_started event (e.g. the 6th player who
+    // is still mid-redirect from the waiting room when round 1 begins).
+    this.roundStartTime = null;
+    this.roundDuration = null;
   }
 
   get realPlayerCount() {
@@ -96,47 +106,40 @@ async function findOrCreateRoom() {
 }
 
 async function addPlayerToRoom(room, userId, userName) {
-  // Check not already in room (in-memory)
+  // Check not already in room (in-memory) — fast path, avoids an RPC call
+  // for players who are already seated.
   for (const p of room.players.values()) {
     if (p.userId === userId) return p;
   }
 
-  // DB-level strict cap — count real players in DB to prevent race conditions
-  const { count, error: countError } = await supabase
-    .from('players')
-    .select('id', { count: 'exact', head: true })
-    .eq('game_id', room.gameId)
-    .eq('is_bot', false);
-
-  if (countError) throw countError;
-  if (count >= MAX_PLAYERS) {
-    // Also update in-memory count to stay in sync
-    return null;
-  }
-
-  // Hard cap on in-memory count too
-  if (room.realPlayerCount >= MAX_PLAYERS) {
-    return null;
-  }
-
-  const playerId = uuidv4();
-  const seatNumber = (count || room.realPlayerCount) + 1;
-
-  // Insert into DB
-  const { error } = await supabase.from('players').insert({
-    id: playerId,
-    user_id: userId,
-    game_id: room.gameId,
-    seat_number: seatNumber,
-    cash: 0,
-    asset_count: 2,
-    is_bot: false,
+  // Atomic, database-level seat claim. This calls a Postgres function
+  // (claim_seat) that locks the game row, recounts real players, and
+  // inserts in a single transaction — so two simultaneous join requests
+  // can never both succeed past the 6-player cap. This is the fix for
+  // the lobby overflow bug (7th player sometimes getting in).
+  const { data, error } = await supabase.rpc('claim_seat', {
+    p_game_id: room.gameId,
+    p_user_id: userId,
+    p_max_players: MAX_PLAYERS,
   });
 
   if (error) throw error;
 
-  const player = new PlayerState(playerId, userId, userName, seatNumber);
-  room.players.set(playerId, player);
+  const result = Array.isArray(data) ? data[0] : data;
+  if (!result || !result.player_id) {
+    // Lobby is full — database rejected the seat claim.
+    return null;
+  }
+
+  // Hard cap on in-memory count too, as a defensive second check —
+  // if this ever disagrees with the DB, trust the DB result above and
+  // simply refuse to seat the player locally.
+  if (room.realPlayerCount >= MAX_PLAYERS) {
+    return null;
+  }
+
+  const player = new PlayerState(result.player_id, userId, userName, result.seat_number);
+  room.players.set(result.player_id, player);
 
   return player;
 }
@@ -214,12 +217,24 @@ function startRound(room, io) {
     }
   }
 
-  // Emit round start to all players
+  // Anchor this round to a fixed server timestamp so every client computes
+  // the same countdown regardless of when their socket connected or how
+  // fast their own browser clock ticks.
+  room.roundStartTime = Date.now();
+  room.roundDuration = ROUND_DURATION;
+
+  // Emit round start to all players. startedAt + serverTime let each
+  // client compute "time already elapsed" even if this event was missed
+  // (e.g. the 6th player still mid-redirect from the waiting room) —
+  // the client's own loadGameState() call afterwards carries the same
+  // anchor via roundStartTime/roundDuration in the REST response.
   io.to(room.gameId).emit('round_started', {
     round: room.currentRound,
     totalRounds: TOTAL_ROUNDS,
     question: room.questions[room.currentRound - 1],
     duration: ROUND_DURATION / 1000,
+    startedAt: room.roundStartTime,
+    serverTime: Date.now(),
     players: serializePlayers(room),
   });
 
