@@ -100,3 +100,61 @@ CREATE INDEX IF NOT EXISTS idx_orders_game_round ON orders(game_id, round_number
 CREATE INDEX IF NOT EXISTS idx_transactions_game ON transactions(game_id);
 CREATE INDEX IF NOT EXISTS idx_round_snapshots_game ON round_snapshots(game_id);
 CREATE INDEX IF NOT EXISTS idx_round_snapshots_user ON round_snapshots(user_id);
+
+-- ============================================================
+-- Atomic seat claiming — fixes the lobby overflow bug.
+--
+-- Counting players then inserting (two separate steps) is not atomic:
+-- two concurrent join requests can both read count=5, both pass the
+-- "< 6" check, and both insert, producing 7 players. This function
+-- does the count-check-insert as a single locked transaction inside
+-- Postgres itself, so the database guarantees the cap regardless of
+-- how many requests hit it at the same instant.
+-- ============================================================
+CREATE OR REPLACE FUNCTION claim_seat(
+  p_game_id UUID,
+  p_user_id UUID,
+  p_max_players INTEGER
+)
+RETURNS TABLE(player_id UUID, seat_number INTEGER, was_created BOOLEAN) AS $$
+DECLARE
+  v_existing_id UUID;
+  v_existing_seat INTEGER;
+  v_current_count INTEGER;
+  v_new_seat INTEGER;
+  v_new_id UUID;
+BEGIN
+  -- Lock this game's player rows for the duration of this transaction
+  -- so concurrent calls for the same game queue up instead of racing.
+  PERFORM 1 FROM game_sessions WHERE id = p_game_id FOR UPDATE;
+
+  -- Already joined? Return their existing seat (idempotent).
+  SELECT id, players.seat_number INTO v_existing_id, v_existing_seat
+  FROM players
+  WHERE game_id = p_game_id AND user_id = p_user_id AND is_bot = FALSE
+  LIMIT 1;
+
+  IF v_existing_id IS NOT NULL THEN
+    RETURN QUERY SELECT v_existing_id, v_existing_seat, FALSE;
+    RETURN;
+  END IF;
+
+  -- Count real players already in this game, under the lock above.
+  SELECT COUNT(*) INTO v_current_count
+  FROM players
+  WHERE game_id = p_game_id AND is_bot = FALSE;
+
+  IF v_current_count >= p_max_players THEN
+    RETURN QUERY SELECT NULL::UUID, NULL::INTEGER, FALSE;
+    RETURN;
+  END IF;
+
+  v_new_seat := v_current_count + 1;
+  v_new_id := gen_random_uuid();
+
+  INSERT INTO players (id, user_id, game_id, seat_number, cash, asset_count, is_bot)
+  VALUES (v_new_id, p_user_id, p_game_id, v_new_seat, 0, 2, FALSE);
+
+  RETURN QUERY SELECT v_new_id, v_new_seat, TRUE;
+END;
+$$ LANGUAGE plpgsql;
