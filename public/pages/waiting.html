@@ -104,6 +104,7 @@
   const gameId = window.location.pathname.split('/')[2];
   const counterValue = document.getElementById('counterValue');
   const seatDots = document.getElementById('seatDots');
+  const seatBadge = document.getElementById('seatBadge');
 
   function renderDots(count) {
     let html = '';
@@ -127,6 +128,10 @@
     socket.emit('join_waiting', { gameId });
   });
 
+  socket.on('seat_assigned', (data) => {
+    seatBadge.textContent = `Seat ${data.seat}`;
+  });
+
   socket.on('player_count', (data) => {
     updateCount(data.count);
   });
@@ -148,6 +153,9 @@
       try {
         const data = await API.get(`/poll/waiting/${gameId}`);
         updateCount(data.playerCount);
+        if (data.seat) {
+          seatBadge.textContent = `Seat ${data.seat}`;
+        }
         if (data.isActive) {
           clearInterval(pollTimer);
           window.location.href = `/game/${gameId}`;
