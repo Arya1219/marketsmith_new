@@ -252,7 +252,21 @@ function scheduleBotOrders(room, io) {
     const delay = Math.floor(Math.random() * 5000); // 0-5 seconds
     setTimeout(() => {
       if (room.phase !== 'play') return;
-      const orders = generateBotOrders(room.trueValue, p.playerId, room.currentRound);
+      const revealedSum = room.hiddenArray
+  .slice(0, room.currentRound)
+  .reduce((a, b) => a + b, 0);
+
+const remainingRounds =
+  room.hiddenArray.length - room.currentRound;
+
+const currentEV =
+  revealedSum + remainingRounds * 4.5;
+
+const orders = generateBotOrders(
+    currentEV,
+    p.playerId,
+    room.currentRound
+);
       room.orders.push(orders.bid);
       room.orders.push(orders.ask);
       p.ordersThisRound.push('BID', 'ASK');
