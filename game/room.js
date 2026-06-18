@@ -495,8 +495,8 @@ function placeOrder(room, playerId, type, price) {
   }
 
   // Asset guard for sells
-  if (type === 'ASK' && player.assetCount <= 1) {
-    return { ok: false, message: 'You must keep at least 1 asset — cannot sell your last one' };
+  if (type === 'ASK' && player.assetCount <= 0) {
+    return { ok: false, message: 'You have no asset left to sell' };
   }
 
   const order = {
