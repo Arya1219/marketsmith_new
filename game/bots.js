@@ -11,13 +11,16 @@
  * @param {number} round - current round number (1-6)
  * @returns {{ bid: {playerId, type, price, timestamp, isBot}, ask: {playerId, type, price, timestamp, isBot} }}
  */
-function generateBotOrders(trueValue, botId, round) {
+function generateBotOrders(currentEV, botId, round) {
   // Noise range: ±15 on estimate
-  const noise = Math.floor(Math.random() * 31) - 15;
-  const estimate = Math.max(6, Math.min(54, trueValue + noise)); // clamp between 6 and 54
+  const noise = Math.floor(Math.random() * 11) - 5; // -5 to +5
+  const estimate = Math.max(
+  1,
+  Math.min(100, currentEV + noise)
+);
 
   // Spread: bot places bid slightly below and ask slightly above estimate
-  const spread = Math.floor(Math.random() * 7) + 2; // 2 to 8
+  const spread = Math.floor(Math.random() * 4) + 2; // 2 to 5
 
   const bidPrice = Math.max(1, Math.min(100, Math.round(estimate - spread)));
   const askPrice = Math.max(1, Math.min(100, Math.round(estimate + spread)));
