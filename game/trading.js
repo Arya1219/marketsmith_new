@@ -52,7 +52,7 @@ function matchOrders(orders) {
 
 /**
  * Apply trades to player states in memory.
- * Enforces: seller must keep at least 1 asset.
+ * Enforces: seller must keep at least 0 asset.
  * @param {Map} playerStates - map of playerId -> { cash, assetCount }
  * @param {Array} trades
  * @returns {Array} executedTrades - trades that actually went through
@@ -66,8 +66,8 @@ function applyTrades(playerStates, trades) {
 
     if (!buyer || !seller) continue;
 
-    // Seller must keep at least 1 asset — hard rule
-    if (seller.assetCount <= 1) continue;
+    // Seller must keep at least 0 asset — hard rule
+    if (seller.assetCount <= 0) continue;
 
     buyer.cash -= trade.price;
     buyer.assetCount += 1;
