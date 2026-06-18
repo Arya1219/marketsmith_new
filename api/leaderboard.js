@@ -7,11 +7,12 @@ const router = express.Router();
 
 router.get('/leaderboard', authMiddleware, async (req, res) => {
   try {
+    // No limit — show every registered participant, not just top 50,
+    // so players can find their own rank even if they're far down the list.
     const { data, error } = await supabase
       .from('users')
       .select('first_name, games_played, total_pnl')
-      .order('total_pnl', { ascending: false })
-      .limit(50);
+      .order('total_pnl', { ascending: false });
 
     if (error) throw error;
 
