@@ -74,12 +74,15 @@ io.on('connection', (socket) => {
       currentGameId = gameId;
       socket.join(gameId);
 
-      // Find this user's playerId in the room
+      // Find this user's playerId in the room and tell them their own
+      // seat number directly (only this socket, not the whole room) —
+      // this is what the waiting room badge displays.
       for (const [id, p] of r.players) {
         if (p.userId === socket.userId) {
           currentPlayerId = id;
           p.socketId = socket.id;
           room.handleReconnect(r, id, socket.id);
+          socket.emit('seat_assigned', { seat: p.seatNumber });
           break;
         }
       }
