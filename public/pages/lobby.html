@@ -78,6 +78,7 @@
   <!-- LEADERBOARD TAB -->
   <div class="card panel" id="tab-leaderboard">
     <div class="panel-body">
+      <input type="text" id="leaderboardSearch" placeholder="Search your name..." style="margin-bottom: 14px;">
       <table>
         <thead>
           <tr><th>Rank</th><th>Name</th><th>Games</th><th>Total PnL</th></tr>
@@ -230,25 +231,32 @@
   });
 
   // ─── Leaderboard ────────────────────────────────────────────
+  let leaderboardData = [];
+
   async function loadLeaderboard() {
     try {
       const data = await API.get('/leaderboard');
-      const body = document.getElementById('leaderboardBody');
-      if (data.leaderboard.length === 0) {
-        body.innerHTML = '<tr><td colspan="4" class="loading-row">No games played yet</td></tr>';
-        return;
-      }
-      body.innerHTML = data.leaderboard.map(row => `
-        <tr>
-          <td>${row.rank}</td>
-          <td>${escapeHtml(row.name)}</td>
-          <td>${row.gamesPlayed}</td>
-          <td class="${row.totalPnl >= 0 ? 'pnl-positive' : 'pnl-negative'}">${row.totalPnl >= 0 ? '+' : ''}${row.totalPnl}</td>
-        </tr>
-      `).join('');
+      leaderboardData = data.leaderboard;
+      renderLeaderboard(leaderboardData);
     } catch (err) {
       console.error('Leaderboard load failed:', err);
     }
+  }
+
+  function renderLeaderboard(rows) {
+    const body = document.getElementById('leaderboardBody');
+    if (rows.length === 0) {
+      body.innerHTML = '<tr><td colspan="4" class="loading-row">No matches found</td></tr>';
+      return;
+    }
+    body.innerHTML = rows.map(row => `
+      <tr>
+        <td>${row.rank}</td>
+        <td>${escapeHtml(row.name)}</td>
+        <td>${row.gamesPlayed}</td>
+        <td class="${row.totalPnl >= 0 ? 'pnl-positive' : 'pnl-negative'}">${row.totalPnl >= 0 ? '+' : ''}${row.totalPnl}</td>
+      </tr>
+    `).join('');
   }
 
   function escapeHtml(str) {
@@ -256,6 +264,12 @@
     div.textContent = str;
     return div.innerHTML;
   }
+
+  document.getElementById('leaderboardSearch').addEventListener('input', (e) => {
+    const q = e.target.value.toLowerCase().trim();
+    if (!q) { renderLeaderboard(leaderboardData); return; }
+    renderLeaderboard(leaderboardData.filter(r => r.name.toLowerCase().includes(q)));
+  });
 
   loadLeaderboard();
   leaderboardInterval = setInterval(loadLeaderboard, 10000);
