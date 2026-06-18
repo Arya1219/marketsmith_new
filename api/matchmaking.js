@@ -51,10 +51,16 @@ router.get('/poll/waiting/:gameId', authMiddleware, async (req, res) => {
       return res.json({ playerCount: 0, isActive: game ? game.is_active : false });
     }
 
+    let mySeat = null;
+    for (const p of r.players.values()) {
+      if (p.userId === req.user.id) { mySeat = p.seatNumber; break; }
+    }
+
     res.json({
       playerCount: r.realPlayerCount,
       isActive: r.phase !== 'waiting',
       maxPlayers: 6,
+      seat: mySeat,
     });
   } catch (err) {
     console.error('Poll waiting error:', err);
